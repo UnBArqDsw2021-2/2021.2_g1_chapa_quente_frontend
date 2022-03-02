@@ -1,0 +1,3 @@
+describe('teste', () => {
+  cy.visit('/');
+})
