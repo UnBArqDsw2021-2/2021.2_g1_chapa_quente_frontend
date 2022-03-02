@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: frontend_chapa_quente
+    stdin_open: true
+    tty: true
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      CHOKIDAR_USEPOLLING=true
+    command: npm start
