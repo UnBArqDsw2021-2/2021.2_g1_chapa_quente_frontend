@@ -11,5 +11,5 @@ services:
     volumes:
       - .:/app
     environment:
-      CHOKIDAR_USEPOLLING=true
+      CHOKIDAR_USEPOLLING: "true"
     command: npm start
