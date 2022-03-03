@@ -13,5 +13,8 @@ stop:
 prune:
 	docker system prune && docker volume prune
 
-cypress:
+cypress-run:
 	npx cypress run
+
+cypress-open:
+	npx cypress open
