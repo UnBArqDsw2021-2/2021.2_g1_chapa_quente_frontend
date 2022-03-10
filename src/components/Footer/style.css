@@ -3,6 +3,8 @@ footer {
   width: 100%;
   max-height: 238px;
   background-color: #f98942;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer-div {
@@ -20,7 +22,7 @@ footer {
 
 .footer-left-list,
 .footer-right-list {
-  min-width: 221px;
+  max-width: 221px;
   list-style: none;
 }
 .footer-left-list a,
@@ -38,6 +40,12 @@ footer {
 .footer-left-list li,
 .footer-right-list li {
   margin-bottom: 25px;
+  font-size: inherit;
+}
+
+.footer-left-list li a,
+.footer-right-list li a {
+  font-size: 0.87rem;
 }
 
 .footer-left-list li:last-child,
@@ -55,4 +63,45 @@ footer {
 
 .footer-logo-aberto {
   opacity: 1;
+}
+
+@media (max-width: 376px) {
+  footer {
+    height: 120px;
+  }
+
+  .footer-div {
+    padding: 0 10%;
+    width: 100%;
+  }
+
+  .footer-ChapaQuenteLogo {
+    width: 60px;
+    height: auto;
+  }
+
+  .footer-left-list,
+  .footer-right-list {
+    max-width: 291px;
+    min-width: 100px;
+  }
+
+  .footer-left-list li a,
+  .footer-right-list li a {
+    font-size: 0.4rem;
+  }
+
+  .footer-left-list li,
+  .footer-right-list li {
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-left-list li:last-child,
+  .footer-right-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .footer-icon-span {
+    padding-right: 0.4rem;
+  }
 }

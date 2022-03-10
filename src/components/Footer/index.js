@@ -37,24 +37,19 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
-
-        <ul>
-          <li>
-            {today.getHours() > 16 && today.getHours() <= 23 ? (
-              <img
-                className="footer-ChapaQuenteLogo footer-logo-aberto"
-                src={ChapaQuenteLogo}
-                alt="logo-footer"
-              />
-            ) : (
-              <img
-                className="footer-ChapaQuenteLogo footer-logo-fechado"
-                src={ChapaQuenteLogo}
-                alt="logo-footer"
-              />
-            )}
-          </li>
-        </ul>
+        {today.getHours() > 16 && today.getHours() <= 23 ? (
+          <img
+            className="footer-ChapaQuenteLogo footer-logo-aberto"
+            src={ChapaQuenteLogo}
+            alt="logo-footer"
+          />
+        ) : (
+          <img
+            className="footer-ChapaQuenteLogo footer-logo-fechado"
+            src={ChapaQuenteLogo}
+            alt="logo-footer"
+          />
+        )}
         <ul className="footer-right-list">
           <li>
             <a href="#s">

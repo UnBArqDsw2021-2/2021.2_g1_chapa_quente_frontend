@@ -1,12 +1,6 @@
 import React from 'react';
+import './style.css';
 
-function Header({ currentUser, logout }) { // eslint-disable-line no-shadow
-  const history = useHistory();
-  const [hidden, setHidden] = useState(true);
-
-  return (<Header>
-    <p>Testando</p>
-  </Header>);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export const Header = () => {
+  return <div className='headerContent'>Header</div>;
+};
