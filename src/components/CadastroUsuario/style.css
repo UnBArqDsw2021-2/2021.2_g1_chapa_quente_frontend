@@ -27,6 +27,7 @@
   width: 305px;
   padding: 13px;
   border: none;
+  outline-style: none;
   border-radius: 5px;
 }
 
@@ -42,4 +43,28 @@
   font-weight: bold;
   font-size: 24px;
   margin-top: 38px;
+}
+
+.btn-cadastro-usuario:hover{
+  cursor: pointer;
+  background-color: #F3DFD4;
+  color: #F98942;
+}
+
+.btn-cadastro-usuario:active {
+  background-color: white;
+}
+
+.cadastro-usuario-input:hover{
+  background-color: #F3DfD4;
+  color: white;
+}
+
+.cadastro-usuario-input:focus{
+  background-color: #F98942;
+  color: white;
+}
+
+.cadastro-usuario-input:focus::placeholder{
+  color: white;
 }

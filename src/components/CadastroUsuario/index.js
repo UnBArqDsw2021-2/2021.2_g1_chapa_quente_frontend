@@ -4,7 +4,7 @@ import "./style.css";
 export const CadastroUsuario = () => {
 
   const initialValue = {
-    nomeUsuario: '',
+    nome: '',
     senha: '',
     endereco: '',
     telefone: '',
@@ -19,22 +19,29 @@ export const CadastroUsuario = () => {
     setValues({ ...values, [name]: value });
   };
 
-  // function onSubmit(ev) {
-  //   ev.preventDefault();
-  //   fetch().then(response => {
-  //     return response
-  //   });
-  // };
+  function onSubmit(ev) {
+    ev.preventDefault();
+    fetch('http://localhost:3333/cliente', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(values),
+    })
+      .then(response => response.json())
+      .then(json => console.log('success: ', json))
+      .catch((error) => console.error('error: ', error)
+    );
+  };
 
   return (
     <>
       <div className="cadastro-usuario-div">
-        {/* <form onSubmit={onSubmit()}> */}
         <h3>Cadastrar</h3>
-        <form className="form-cadastro-usuario">
+        <form onSubmit={onSubmit} className="form-cadastro-usuario">
           <input className="cadastro-usuario-input"
-            id="nomeUsuario"
-            name="nomeUsuario"
+            id="nome"
+            name="nome"
             type="text"
             required
             placeholder="Nome"
@@ -73,7 +80,10 @@ export const CadastroUsuario = () => {
             placeholder="(61) 12345-6789"
             onChange={onChange} />
 
-          <button type="submit" className="btn-cadastro-usuario">Cadastrar{console.log(values)}</button>
+          <button type="submit" className="btn-cadastro-usuario">
+            Cadastrar
+            {/* {console.log(values)} */}
+            </button>
         </form>
       </div>
     </>
