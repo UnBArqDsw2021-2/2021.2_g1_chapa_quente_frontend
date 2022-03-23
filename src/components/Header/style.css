@@ -28,8 +28,8 @@ header {
 
 .header-left-list a {
   color: #f98942;
-  font-weight: bold;
-  font-size: 18;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .header-right-div {
@@ -56,20 +56,23 @@ header {
   align-items: center;
 }
 
-.header-right-list li:last-child {
+.btnPrimary {
   background-color: #f98942;
   font-weight: bold;
+  font-weight: 700;
+  font-size: 24px;
   color: white;
-  height: 40px;
-  width: 110px;
+
+  padding: 5px 21px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  border: none;
 }
 
-.header-divider{
-  border-top: 1px solid #F98942;
+.header-divider {
+  border-top: 1px solid #f98942;
   width: 80%;
   margin: auto;
 }
