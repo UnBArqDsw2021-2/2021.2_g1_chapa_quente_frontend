@@ -18,3 +18,6 @@ cypress-run:
 
 cypress-open:
 	npx cypress open
+
+install:
+	docker-compose exec frontend_chapa_quente npm install $(pacote) && npm install $(pacote)
