@@ -18,6 +18,7 @@ footer {
 
 .footer-ChapaQuenteLogo {
   max-width: 221px;
+  height: 150px;
 }
 
 .footer-left-list,
@@ -57,12 +58,17 @@ footer {
   padding-right: 21px;
 }
 
-.footer-logo-fechado {
-  opacity: 0.5;
+.footer-horario{
+  color: white;
+  text-align: center;
 }
 
-.footer-logo-aberto {
-  opacity: 1;
+.footer-center-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
 
 @media (max-width: 376px) {
