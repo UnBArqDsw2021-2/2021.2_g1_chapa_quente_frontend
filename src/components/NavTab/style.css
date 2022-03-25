@@ -1,0 +1,47 @@
+.nav-tab-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin:auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 20px;
+  width: 60%;
+  
+  background-color: #EDDCD8;
+  border-radius: 10px;
+}
+
+.nav{
+  width: 100%;
+  background-color: #EDDCD8;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom-style: solid;
+}
+
+.nav button {
+  font-weight: 500;
+  font-size: 24px;
+  background-color: #f98942;
+  color: white;
+  padding: 5px 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: none;
+  border-right-style: solid;
+  border-color: black;
+}
+
+button:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.outlet{
+  margin: auto;
+  padding: 20px;
+}

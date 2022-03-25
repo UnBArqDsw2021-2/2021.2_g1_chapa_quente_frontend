@@ -1,4 +1,5 @@
 import React from "react";
+import './style.css'
 
 export const NavTabItem = ({ id, title, activeTab, setActiveTab }) => {
 
@@ -7,7 +8,7 @@ export const NavTabItem = ({ id, title, activeTab, setActiveTab }) => {
   }
 
   return (
-    <button className={activeTab === id ? "active" : "" } type="button" onClick={handleClick}>
+    <button id={activeTab === id ? "nav-tab-active" : "" } type="button" onClick={handleClick}>
       {title}
     </button>
   );

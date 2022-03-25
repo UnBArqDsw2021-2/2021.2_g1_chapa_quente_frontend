@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './style.css'
 import { NavTabItem } from '../NavTabItem'
 import { NavTabContent } from "../NavTabContent";
 import { ProdutosTab } from "../TabsContent/ProdutosTab"
