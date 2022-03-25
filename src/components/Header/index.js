@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style.css';
 import { MdOutlineLocalGroceryStore } from 'react-icons/md';
 import chapaQuenteLogo from '../../assets/chapaQuenteLogo.png';
@@ -7,9 +7,18 @@ import { useAuth } from '../../context/AuthContext';
 
 export const Header = () => {
   // eslint-disable-next-line no-unused-vars
-  const { isAuthenticate } = useAuth();
+  const { isAuthenticate, logOut } = useAuth();
+  const navigateHeader = useNavigate();
 
-  console.log(isAuthenticate);
+  const handleStatusUser = () => {
+    if (isAuthenticate) {
+      logOut();
+      navigateHeader('/');
+    } else {
+      navigateHeader('/login');
+    }
+  };
+
   return (
     <>
       <header>
@@ -27,6 +36,11 @@ export const Header = () => {
             <li>
               <Link to="/chapaquenters">ChapaQuenters</Link>
             </li>
+            {isAuthenticate && (
+              <li>
+                <Link to="/perfil">Perfil</Link>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -37,12 +51,15 @@ export const Header = () => {
                 <MdOutlineLocalGroceryStore color="#F98942" size={30} />
               </Link>
             </li>
-            <Link to="/login">
-              {/* <li>Entrar</li> */}
-              <button type="button" className="btnPrimary">
-                {isAuthenticate ? 'Sair' : 'Entrar'}
-              </button>
-            </Link>
+            {/* <Link to="/login"> */}
+            <button
+              type="button"
+              className="btnPrimary"
+              onClick={handleStatusUser}
+            >
+              {isAuthenticate ? 'Sair' : 'Entrar'}
+            </button>
+            {/* </Link> */}
           </ul>
         </div>
       </header>

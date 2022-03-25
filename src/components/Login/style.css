@@ -1,28 +1,37 @@
-.cadastro-usuario-div {
+.login-usuario-div {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: auto;
+  min-height: 500px;
 }
 
-.cadastro-usuario-div h3 {
+#error-login{
+  background-color: #FD4A38;
+  color: white;
+  min-width: 305px;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.login-usuario-div h3 {
   font-size: 32px;
   font-weight: bold;
-  margin-top: 49px;
   margin-bottom: 17px;
 }
 
-.form-cadastro-usuario {
+.form-login-usuario {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  gap: 30px;
   margin: top;
   width: 60%;
-  height: 420px;
 }
 
-.cadastro-usuario-input {
+.login-usuario-input {
   background-color: #eddcd8;
   width: 305px;
   padding: 13px;
@@ -31,7 +40,7 @@
   border-radius: 5px;
 }
 
-.btn-cadastro-usuario {
+.btn-login-usuario {
   border-radius: 5px;
   background-color: #f98942;
   border: none;
@@ -42,43 +51,34 @@
   padding-right: 8px;
   font-weight: bold;
   font-size: 24px;
-  margin-top: 38px;
-  margin-bottom: 46px;
 }
 
-.btn-cadastro-usuario:hover {
+#btn-login-row {
+  min-width: 305px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-login-usuario:hover {
   cursor: pointer;
   background-color: #f3dfd4;
   color: #f98942;
 }
 
-.btn-cadastro-usuario:active {
+.btn-login-usuario:active {
   background-color: white;
 }
 
-.cadastro-usuario-input:hover {
+.login-usuario-input:hover {
   background-color: #f3dfd4;
   color: white;
 }
 
-.cadastro-usuario-input:focus {
+.login-usuario-input:focus {
   background-color: #f98942;
   color: white;
 }
 
-.cadastro-usuario-input:focus::placeholder {
+.login-usuario-input:focus::placeholder {
   color: white;
-}
-
-#success-cadastro {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 30px;
-  background-color: #22c76e;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
 }
