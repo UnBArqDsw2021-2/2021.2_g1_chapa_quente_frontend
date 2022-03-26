@@ -6,6 +6,7 @@ import { ProtectedLayout } from '../components/ProtectedLayout';
 import { PerfilUsuario } from '../components/PerfilUsuario';
 import { Login } from '../components/Login';
 import { CadastroUsuario } from '../components/CadastroUsuario';
+import { CadastroProduto } from '../components/CadastroProduto';
 
 export const RoutesChapa = () => {
   return (
@@ -18,6 +19,7 @@ export const RoutesChapa = () => {
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/carrinho" element={<h1>Carrinho</h1>} />
         <Route exact path="/cadastro" element={<CadastroUsuario />} />
+        <Route exact path="/cadastro-produto" element={<CadastroProduto />} />
         <Route
           exact
           path="/perfil"
