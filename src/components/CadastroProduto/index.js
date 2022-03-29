@@ -12,7 +12,11 @@ export const CadastroProduto = () => {
     tamanho: '',
     gelo: '',
     adicional: '',
+    isAvailable: true,
   };
+
+  const data = JSON.parse(sessionStorage.getItem('@user'));
+  const token = data?.token;
 
   const navigate = useNavigate();
 
@@ -28,12 +32,12 @@ export const CadastroProduto = () => {
 
   const onSubmit = async ev => {
     ev.preventDefault();
-    const result = await api.post(`/${productType}/create`, values);
+    const result = await api.post(`/${productType}/create`, values, { headers: {"Authorization" : `Bearer ${token}`}});
     if (result.status === 201) {
       setValues(initialValue);
       setMsgSuccess(true);
     } else {
-        console.log("failed call");
+        console.log(result.data.erro);
     }
   };
 

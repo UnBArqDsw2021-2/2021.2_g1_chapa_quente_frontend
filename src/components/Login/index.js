@@ -8,6 +8,7 @@ export const Login = () => {
   const initialValueLogin = {
     email: '',
     senha: '',
+    tipo: '',
   };
 
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ export const Login = () => {
     setErroLogin(false);
 
     try {
-      const response = await api.post('/cliente/signin', values).then(res => {
+      const response = await api.post('/signin', values).then(res => {
         return res;
       });
       console.log(response.status);
@@ -79,6 +80,16 @@ export const Login = () => {
             type="password"
             required
             placeholder="Senha"
+            onChange={onChange}
+          />
+
+          <input
+            className="login-usuario-input"
+            id="tipo"
+            name="tipo"
+            type="text"
+            required
+            placeholder="Tipo"
             onChange={onChange}
           />
           {erroLogin && (
