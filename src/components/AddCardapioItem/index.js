@@ -1,13 +1,13 @@
 import React from 'react';
 import './style.css';
 
-export const AddCardapioItem = () => {
+export const AddCardapioItem = ({price}) => {
 
   return(
   <>
     <div className='container-add-button-cardapio'>
         <div className="price-container">
-            <p>R$ 29,90</p>
+            <p>{price}</p>
         </div>
         <div className="icon-container">
             <p>+</p>
