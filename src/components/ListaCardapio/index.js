@@ -35,13 +35,8 @@ export const ListaCardapio = () => {
   <>
     <div className="container-list">
         <div className="cards">
-            <RefeicaoCard/>
-            <RefeicaoCard/>
-            <RefeicaoCard/>
-            <RefeicaoCard/>
-            <RefeicaoCard/>
-            {acompanhamentos.map((acompanhamento) => (
-              <RefeicaoCard name={acompanhamento.descricao} price={acompanhamento.preco}/>
+            {sanduiches.map((sanduiche) => (
+              <RefeicaoCard name={sanduiche.descricao} price={sanduiche.preco}/>
             ))}
         </div>
     </div>
