@@ -1,9 +1,23 @@
 import React from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import './style.css';
+import { AddCardapioItem } from '../AddCardapioItem';
+import sanduicheChapaQuente from '../../assets/sanduiche.png';
 
 export const RefeicaoCard = () => {
-  <div>
-      <p>Card de refeição</p>
-  </div>
+
+  return(
+  <>
+    <div className="container">
+        <div className="container-img-refeicaocard">
+          <img src={sanduicheChapaQuente} alt="sanduiche"  width="80%" height="110px"/>
+        </div>
+        <div className="container-name-food-refeicaocard">
+          <p>Chapa Burguer Bacon</p>
+        </div>
+        <div className="container-button-refeicaocard">
+          <AddCardapioItem/>
+        </div>
+    </div>
+  </>
+  )
 };

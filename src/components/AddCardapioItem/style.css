@@ -1,0 +1,17 @@
+.container-add-button-cardapio{
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    font-size: 0.8rem
+}
+
+.price-container{
+    width: 80%;
+}
+
+.icon-container{
+    width: 20%;
+}
