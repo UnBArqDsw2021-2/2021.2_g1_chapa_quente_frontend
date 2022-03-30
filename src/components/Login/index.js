@@ -8,6 +8,7 @@ export const Login = () => {
   const initialValueLogin = {
     email: '',
     senha: '',
+    tipo: '',
   };
 
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ export const Login = () => {
   }, [isAuthenticate]);
 
   const onChange = ev => {
+    // eslint-disable-next-line no-unused-vars
     const { name, value } = ev.target;
 
     if (name === '' || value === '') {
@@ -41,14 +43,16 @@ export const Login = () => {
     setErroLogin(false);
 
     try {
-      const response = await api.post('/cliente/signin', values).then(res => {
+      const response = await api.post('/signin', values).then(res => {
         return res;
       });
-      console.log(response.status);
-      console.log(response.data);
+      // console.log(response.status);
+      // console.log(response.data);
+      // console.log(response.data.token);
 
       if (response.status === 200) {
-        sessionStorage.setItem('@user', JSON.stringify(response.data));
+        sessionStorage.setItem('@user', JSON.stringify(response.data.pessoa));
+        sessionStorage.setItem('@token', JSON.stringify(response.data.token));
         setUser(response.data);
         setIsAuthenticate(true);
       }
@@ -71,7 +75,6 @@ export const Login = () => {
             placeholder="Email"
             onChange={onChange}
           />
-
           <input
             className="login-usuario-input"
             id="senha"
@@ -81,8 +84,46 @@ export const Login = () => {
             placeholder="Senha"
             onChange={onChange}
           />
+          <div id="tipo-usuario">
+            <label htmlFor="clienteTipo" className="input-tipo">
+              <input
+                type="radio"
+                id="clienteTipo"
+                name="tipo"
+                value="Cliente"
+                onChange={onChange}
+              />
+              Cliente
+            </label>
+
+            <label htmlFor="funcionarioTipo" className="input-tipo">
+              <input
+                type="radio"
+                id="funcionarioTipo"
+                name="tipo"
+                value="Funcionario"
+                onChange={onChange}
+              />
+              Funcionario
+            </label>
+
+            <label htmlFor="entregador" className="input-tipo">
+              <input
+                type="radio"
+                id="entregador"
+                name="tipo"
+                value="Entregador"
+                onChange={onChange}
+              />
+              Entregador
+            </label>
+          </div>
           {erroLogin && (
             <strong id="error-login">Email e senha não são validos!</strong>
+          )}
+
+          {values.tipo === '' && erroLogin && (
+            <strong id="error-login">Selecione o Tipo</strong>
           )}
 
           <div id="btn-login-row">

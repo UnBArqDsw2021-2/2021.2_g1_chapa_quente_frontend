@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const AuthContext = createContext({});
@@ -6,22 +7,26 @@ const AuthContext = createContext({});
 const AuthProvider = ({ children }) => {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [user, setUser] = useState({});
+  const [token, setToken] = useState();
 
   useEffect(() => {
-    const status = sessionStorage.getItem('@user');
-    const statusUser = JSON.parse(status);
-    console.log('aaa',status)
-    console.log('aaa',statusUser)
+    const dataUser = sessionStorage.getItem('@user');
+    const tokenUser = sessionStorage.getItem('@token');
 
-    if (statusUser) {
+    const data = JSON.parse(dataUser);
+    const tokenData = JSON.parse(tokenUser);
+
+    if (data && tokenData) {
       setIsAuthenticate(true);
-      setUser(statusUser)
+      setUser(data);
+      setToken(tokenData);
     }
   }, []);
 
   const logOut = () => {
     setIsAuthenticate(false);
     sessionStorage.removeItem('@user');
+    sessionStorage.removeItem('@token');
   };
 
   return (
@@ -32,6 +37,7 @@ const AuthProvider = ({ children }) => {
         isAuthenticate,
         setIsAuthenticate,
         logOut,
+        token,
       }}
     >
       {children}

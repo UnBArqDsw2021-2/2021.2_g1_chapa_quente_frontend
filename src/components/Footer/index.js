@@ -6,8 +6,6 @@ import ChapaQuenteLogo from '../../assets/logoChapaQuenteBranco-03.png';
 import './style.css';
 
 export const Footer = () => {
-  const today = new Date();
-
   return (
     <footer>
       <div className="footer-div">
@@ -37,19 +35,16 @@ export const Footer = () => {
             </a>
           </li>
         </ul>
-        {today.getHours() > 16 && today.getHours() <= 23 ? (
-          <img
-            className="footer-ChapaQuenteLogo footer-logo-aberto"
+        <ul className='footer-center-list'>
+          <li><img
+            className="footer-ChapaQuenteLogo footer-logo"
             src={ChapaQuenteLogo}
             alt="logo-footer"
-          />
-        ) : (
-          <img
-            className="footer-ChapaQuenteLogo footer-logo-fechado"
-            src={ChapaQuenteLogo}
-            alt="logo-footer"
-          />
-        )}
+          /></li>
+          <li>
+            <p className='footer-horario'>Horário de funcionamento:<br/>domingo a domingo das 16:00 às 00:00</p>
+          </li>
+        </ul>
         <ul className="footer-right-list">
           <li>
             <a href="#s">

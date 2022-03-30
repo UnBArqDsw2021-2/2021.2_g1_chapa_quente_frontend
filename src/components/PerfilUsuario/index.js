@@ -5,35 +5,37 @@ import './style.css';
 
 export const PerfilUsuario = () => {
   const data = JSON.parse(sessionStorage.getItem('@user'));
+  const token = JSON.parse(sessionStorage.getItem('@token'));
+
+  const emailToPut = data?.email;
+
+  
 
   const initialValue = {
-    nome: data.cliente.nome,
-    senha: data.cliente.senha,
-    endereco: data.cliente.endereco,
-    telefone: data.cliente.telefone,
-    email: data.cliente.email,
+    nome: data?.nome,
+    senha: data?.senha,
+    endereco: data?.endereco,
+    telefone: data?.telefone,
+    email: data?.email,
   };
-
-  // const initialValue = {
-  //   nome: '',
-  //   senha: '',
-  //   endereco: '',
-  //   telefone: '',
-  //   email: '',
-  // };
 
   const [values, setValues] = useState(initialValue);
   const [update, setUpdate] = useState(true);
   const [successMsg, setSuccessMsg] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
 
   useEffect(() => {
-    if (successMsg)
+    if (successMsg) {
       setTimeout(() => {
-        setSuccessMsg(false);
-        setUpdate(true);
-        navigate('/login');
+        setSuccessMsg(false);        
+        setUpdate(true);        
       }, 3000);
-  }, [successMsg]);
+    } else {
+      setTimeout(() => {
+        setErrorMsg(false);
+      }, 3000);
+    }
+  }, [successMsg, errorMsg]);
 
   function onChange(ev) {
     const { name, value } = ev.target;
@@ -45,23 +47,34 @@ export const PerfilUsuario = () => {
     e.preventDefault();
     try {
       const response = await api
-        .put(`/cliente/${data.cliente._id}`, values)
+        .put(`/cliente/${emailToPut}`, values, {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
         .then(res => {
           return res;
         });
 
       if (response.status === 200) {
         setSuccessMsg(true);
+        setUpdate(true);
+        sessionStorage.setItem('@user', JSON.stringify(values));
       }
     } catch (error) {
       console.log(error);
+      setErrorMsg(true);
     }
   };
 
   return (
     <>
       {successMsg && (
-        <span id="success-profile">Perfil Atualizado com sucesso</span>
+        <span id="success-profile">Perfil Atualizado com sucesso! 🥰</span>
+      )}
+
+      {errorMsg && (
+        <span id="error-profile">Erro ao tentar atualizar perfil! 😕</span>
       )}
       <div className="perfil-usuario-div">
         <h3>Perfil</h3>
