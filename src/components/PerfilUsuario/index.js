@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
+import { useAuth } from '../../context/AuthContext';
 import api from '../../services';
+import { Modal } from '../Modal';
 import './style.css';
 
 export const PerfilUsuario = () => {
@@ -8,8 +11,7 @@ export const PerfilUsuario = () => {
   const token = JSON.parse(sessionStorage.getItem('@token'));
 
   const emailToPut = data?.email;
-
-  
+  const { logOut } = useAuth();
 
   const initialValue = {
     nome: data?.nome,
@@ -23,12 +25,13 @@ export const PerfilUsuario = () => {
   const [update, setUpdate] = useState(true);
   const [successMsg, setSuccessMsg] = useState(false);
   const [errorMsg, setErrorMsg] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   useEffect(() => {
     if (successMsg) {
       setTimeout(() => {
-        setSuccessMsg(false);        
-        setUpdate(true);        
+        setSuccessMsg(false);
+        setUpdate(true);
       }, 3000);
     } else {
       setTimeout(() => {
@@ -42,6 +45,21 @@ export const PerfilUsuario = () => {
 
     setValues({ ...values, [name]: value });
   }
+
+  const deleteUser = async () => {
+    try {
+      const res = await api.delete(`/cliente/${emailToPut}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.status === 204) {
+        logOut();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -62,7 +80,6 @@ export const PerfilUsuario = () => {
         sessionStorage.setItem('@user', JSON.stringify(values));
       }
     } catch (error) {
-      console.log(error);
       setErrorMsg(true);
     }
   };
@@ -71,6 +88,28 @@ export const PerfilUsuario = () => {
     <>
       {successMsg && (
         <span id="success-profile">Perfil Atualizado com sucesso! 🥰</span>
+      )}
+
+      {deleteModal && (
+        <Modal>
+          <h3 id="modal-title">
+            Você tem certeza que deseja <strong>excluir</strong> sua conta?
+          </h3>
+          <div id="btn-to-delete">
+            <button
+              type="button"
+              className="btn-modal"
+              onClick={() => {
+                setDeleteModal(false);
+              }}
+            >
+              Não
+            </button>
+            <button type="button" className="btn-modal" onClick={deleteUser}>
+              Sim
+            </button>
+          </div>
+        </Modal>
       )}
 
       {errorMsg && (
@@ -152,7 +191,13 @@ export const PerfilUsuario = () => {
             </button>
           )}
         </form>
-        <FaEdit className="edit-icon" onClick={() => setUpdate(!update)} />
+        <div id="btn-usuario">
+          <FaEdit className="edit-icon" onClick={() => setUpdate(!update)} />
+          <RiDeleteBin2Fill
+            className="edit-icon"
+            onClick={() => setDeleteModal(true)}
+          />
+        </div>
       </div>
     </>
   );
