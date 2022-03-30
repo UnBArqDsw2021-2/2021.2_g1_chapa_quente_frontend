@@ -1,18 +1,18 @@
-.cadastro-usuario-div {
+.perfil-usuario-div {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
 }
 
-.cadastro-usuario-div h3 {
+.perfil-usuario-div h3 {
   font-size: 32px;
   font-weight: bold;
   margin-top: 49px;
   margin-bottom: 17px;
 }
 
-.form-cadastro-usuario {
+.form-perfil-usuario {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@
   height: 420px;
 }
 
-.cadastro-usuario-input {
+.perfil-usuario-input {
   background-color: #eddcd8;
   width: 305px;
   padding: 13px;
@@ -31,7 +31,7 @@
   border-radius: 5px;
 }
 
-.btn-cadastro-usuario {
+.btn-perfil-usuario {
   border-radius: 5px;
   background-color: #f98942;
   border: none;
@@ -46,47 +46,55 @@
   margin-bottom: 46px;
 }
 
-.btn-cadastro-usuario:hover {
+.btn-perfil-usuario:hover {
   cursor: pointer;
   background-color: #f3dfd4;
   color: #f98942;
 }
 
-.btn-cadastro-usuario:active {
+.btn-perfil-usuario:active {
   background-color: white;
 }
 
-.cadastro-usuario-input:hover {
+.perfil-usuario-input:hover {
   background-color: #f3dfd4;
   color: white;
 }
 
-.cadastro-usuario-input:focus {
+.perfil-usuario-input:focus {
   background-color: #f98942;
   color: white;
 }
 
-.cadastro-usuario-input:focus::placeholder {
+.perfil-usuario-input:focus::placeholder {
   color: white;
 }
 
-#success-cadastro {
+.edit-icon {
+  cursor: pointer;
+  width: 40px;
+  height: 36px;
+  margin-top: 38px;
+  margin-bottom: 46px;
+}
+
+#success-profile {
   position: fixed;
   top: 0;
   width: 100%;
   height: 30px;
-  background-color: #22c76e;
+  background-color:#22C76E;
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display : flex;
+  align-items : center;
+  justify-content : center;
   font-weight: bold;
 }
 
-#error-cadastro{
-  max-width: 305px;
+#error-profile{
+  position: fixed;
+  top: 0;
   width: 100%;
-  border-radius: 10px;
   height: 30px;
   background-color:#fd4a38;
   color: #fff;
