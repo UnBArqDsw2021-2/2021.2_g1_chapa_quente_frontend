@@ -6,6 +6,7 @@ import { ProtectedLayout } from '../components/ProtectedLayout';
 import { PerfilUsuario } from '../components/PerfilUsuario';
 import { Login } from '../components/Login';
 import { CadastroUsuario } from '../components/CadastroUsuario';
+import { NavTab } from '../components/NavTab';
 
 export const RoutesChapa = () => {
   return (
