@@ -46,26 +46,52 @@
   margin-bottom: 46px;
 }
 
-.btn-cadastro-usuario:hover{
+.btn-cadastro-usuario:hover {
   cursor: pointer;
-  background-color: #F3DFD4;
-  color: #F98942;
+  background-color: #f3dfd4;
+  color: #f98942;
 }
 
 .btn-cadastro-usuario:active {
   background-color: white;
 }
 
-.cadastro-usuario-input:hover{
-  background-color: #F3DfD4;
+.cadastro-usuario-input:hover {
+  background-color: #f3dfd4;
   color: white;
 }
 
-.cadastro-usuario-input:focus{
-  background-color: #F98942;
+.cadastro-usuario-input:focus {
+  background-color: #f98942;
   color: white;
 }
 
-.cadastro-usuario-input:focus::placeholder{
+.cadastro-usuario-input:focus::placeholder {
   color: white;
+}
+
+#success-cadastro {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #22c76e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#error-cadastro{
+  max-width: 305px;
+  width: 100%;
+  border-radius: 10px;
+  height: 30px;
+  background-color:#fd4a38;
+  color: #fff;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  font-weight: bold;
 }

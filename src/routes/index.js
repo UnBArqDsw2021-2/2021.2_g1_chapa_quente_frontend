@@ -4,6 +4,9 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ProtectedLayout } from '../components/ProtectedLayout';
 import { ListaCardapio } from '../components/ListaCardapio';
+import { PerfilUsuario } from '../components/PerfilUsuario';
+import { Login } from '../components/Login';
+import { CadastroUsuario } from '../components/CadastroUsuario';
 
 export const RoutesChapa = () => {
   return (
@@ -19,14 +22,15 @@ export const RoutesChapa = () => {
           }
         />
         <Route exact path="/chapaquenters" element={<h1>ChapaQuenters</h1>} />
-        <Route exact path="/login" element={<h1>Login</h1>} />
+        <Route exact path="/login" element={<Login />} />
         <Route exact path="/carrinho" element={<h1>Carrinho</h1>} />
+        <Route exact path="/cadastro" element={<CadastroUsuario />} />
         <Route
           exact
           path="/perfil"
           element={
             <ProtectedLayout>
-              <h1>perfil</h1>
+              <PerfilUsuario />
             </ProtectedLayout>
           }
         />

@@ -1,37 +1,44 @@
+/* eslint-disable no-undef */
 import React, { createContext, useContext, useEffect, useState } from 'react';
-// import { loginRequest, setUserLocalStorage } from '../../utils/loginUtils';
 
 const AuthContext = createContext({});
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [user, setUser] = useState({});
+  const [token, setToken] = useState();
 
   useEffect(() => {
-    const status = sessionStorage.getItem('userLogged');
-    const statusUser = JSON.parse(status);
+    const dataUser = sessionStorage.getItem('@user');
+    const tokenUser = sessionStorage.getItem('@token');
 
-    if (statusUser) {
-      setIsAuthenticate(statusUser);
+    const data = JSON.parse(dataUser);
+    const tokenData = JSON.parse(tokenUser);
+
+    if (data && tokenData) {
+      setIsAuthenticate(true);
+      setUser(data);
+      setToken(tokenData);
     }
   }, []);
 
-  async function authenticate(email, password) {
-    // const response = await loginRequest(email, password);
-    console.log(email);
-    console.log(password);
-    sessionStorage.setItem('userLogged', JSON.stringify(isAuthenticate));
-    setIsAuthenticate(true);
-    // const payload = { name: response.name, email: response.email };
-    // setUser(payload);
-    // setUserLocalStorage(payload);
-  }
+  const logOut = () => {
+    setIsAuthenticate(false);
+    sessionStorage.removeItem('@user');
+    sessionStorage.removeItem('@token');
+  };
 
   return (
     <AuthContext.Provider
-      value={{ ...user, isAuthenticate, setIsAuthenticate, authenticate }}
+      value={{
+        ...user,
+        setUser,
+        isAuthenticate,
+        setIsAuthenticate,
+        logOut,
+        token,
+      }}
     >
       {children}
     </AuthContext.Provider>
