@@ -16,6 +16,7 @@ export const CadastroUsuario = () => {
 
   const [values, setValues] = useState(initialValue);
   const [msgSuccess, setMsgSuccess] = useState(false);
+  const [msgError, setMsgError] = useState(false);
 
   function onChange(ev) {
     const { name, value } = ev.target;
@@ -23,12 +24,26 @@ export const CadastroUsuario = () => {
     setValues({ ...values, [name]: value });
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setMsgError(false);
+    }, 5000);
+  }, [msgError]);
+
   const onSubmit = async ev => {
     ev.preventDefault();
-    const result = await api.post('/cliente', values);
-    if (result.status === 201) {
-      setValues(initialValue);
-      setMsgSuccess(true);
+    try {
+      const result = await api.post('/cliente', values);
+      if (result.status === 201) {
+        setValues(initialValue);
+        setMsgSuccess(true);
+      }
+
+      if (result.data.erro) {
+        setMsgError(true);
+      }
+    } catch (error) {
+      console.log(result);
     }
   };
 
@@ -78,6 +93,7 @@ export const CadastroUsuario = () => {
             placeholder="Email"
             onChange={onChange}
           />
+          {msgError && <span id="error-cadastro">Email já utilizado!</span>}
 
           <input
             className="cadastro-usuario-input"

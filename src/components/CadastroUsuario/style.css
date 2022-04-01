@@ -82,3 +82,16 @@
   justify-content: center;
   font-weight: bold;
 }
+
+#error-cadastro{
+  max-width: 305px;
+  width: 100%;
+  border-radius: 10px;
+  height: 30px;
+  background-color:#fd4a38;
+  color: #fff;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+  font-weight: bold;
+}

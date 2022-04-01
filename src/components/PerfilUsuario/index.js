@@ -1,39 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
+import { RiDeleteBin2Fill } from 'react-icons/ri';
+import { useAuth } from '../../context/AuthContext';
 import api from '../../services';
+import { Modal } from '../Modal';
 import './style.css';
 
 export const PerfilUsuario = () => {
   const data = JSON.parse(sessionStorage.getItem('@user'));
+  const token = JSON.parse(sessionStorage.getItem('@token'));
+
+  const emailToPut = data?.email;
+  const { logOut } = useAuth();
 
   const initialValue = {
-    nome: data.cliente.nome,
-    senha: data.cliente.senha,
-    endereco: data.cliente.endereco,
-    telefone: data.cliente.telefone,
-    email: data.cliente.email,
+    nome: data?.nome,
+    senha: data?.senha,
+    endereco: data?.endereco,
+    telefone: data?.telefone,
+    email: data?.email,
   };
-
-  // const initialValue = {
-  //   nome: '',
-  //   senha: '',
-  //   endereco: '',
-  //   telefone: '',
-  //   email: '',
-  // };
 
   const [values, setValues] = useState(initialValue);
   const [update, setUpdate] = useState(true);
   const [successMsg, setSuccessMsg] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
 
   useEffect(() => {
-    if (successMsg)
+    if (successMsg) {
       setTimeout(() => {
         setSuccessMsg(false);
         setUpdate(true);
-        navigate('/login');
       }, 3000);
-  }, [successMsg]);
+    } else {
+      setTimeout(() => {
+        setErrorMsg(false);
+      }, 3000);
+    }
+  }, [successMsg, errorMsg]);
 
   function onChange(ev) {
     const { name, value } = ev.target;
@@ -41,27 +46,74 @@ export const PerfilUsuario = () => {
     setValues({ ...values, [name]: value });
   }
 
-  const onSubmit = async e => {
-    e.preventDefault();
+  const deleteUser = async () => {
     try {
-      const response = await api
-        .put(`/cliente/${data.cliente._id}`, values)
-        .then(res => {
-          return res;
-        });
-
-      if (response.status === 200) {
-        setSuccessMsg(true);
+      const res = await api.delete(`/cliente/${emailToPut}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.status === 204) {
+        logOut();
       }
     } catch (error) {
       console.log(error);
     }
   };
 
+  const onSubmit = async e => {
+    e.preventDefault();
+    try {
+      const response = await api
+        .put(`/cliente/${emailToPut}`, values, {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        })
+        .then(res => {
+          return res;
+        });
+
+      if (response.status === 200) {
+        setSuccessMsg(true);
+        setUpdate(true);
+        sessionStorage.setItem('@user', JSON.stringify(values));
+      }
+    } catch (error) {
+      setErrorMsg(true);
+    }
+  };
+
   return (
     <>
       {successMsg && (
-        <span id="success-profile">Perfil Atualizado com sucesso</span>
+        <span id="success-profile">Perfil Atualizado com sucesso! 🥰</span>
+      )}
+
+      {deleteModal && (
+        <Modal>
+          <h3 id="modal-title">
+            Você tem certeza que deseja <strong>excluir</strong> sua conta?
+          </h3>
+          <div id="btn-to-delete">
+            <button
+              type="button"
+              className="btn-modal"
+              onClick={() => {
+                setDeleteModal(false);
+              }}
+            >
+              Não
+            </button>
+            <button type="button" className="btn-modal" onClick={deleteUser}>
+              Sim
+            </button>
+          </div>
+        </Modal>
+      )}
+
+      {errorMsg && (
+        <span id="error-profile">Erro ao tentar atualizar perfil! 😕</span>
       )}
       <div className="perfil-usuario-div">
         <h3>Perfil</h3>
@@ -139,7 +191,13 @@ export const PerfilUsuario = () => {
             </button>
           )}
         </form>
-        <FaEdit className="edit-icon" onClick={() => setUpdate(!update)} />
+        <div id="btn-usuario">
+          <FaEdit className="edit-icon" onClick={() => setUpdate(!update)} />
+          <RiDeleteBin2Fill
+            className="edit-icon"
+            onClick={() => setDeleteModal(true)}
+          />
+        </div>
       </div>
     </>
   );

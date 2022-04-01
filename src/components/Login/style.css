@@ -7,8 +7,8 @@
   min-height: 500px;
 }
 
-#error-login{
-  background-color: #FD4A38;
+#error-login {
+  background-color: #fd4a38;
   color: white;
   min-width: 305px;
   padding: 5px;
@@ -81,4 +81,23 @@
 
 .login-usuario-input:focus::placeholder {
   color: white;
+}
+
+#tipo-usuario {
+  min-width: 305px;
+  display: flex;
+}
+
+.input-tipo input {
+  margin-right: 5px;
+}
+
+.input-tipo:first-child::after {
+  content: '|';
+  padding: 10px;
+}
+
+.input-tipo:last-child::before {
+  content: '|';
+  padding: 10px;
 }
