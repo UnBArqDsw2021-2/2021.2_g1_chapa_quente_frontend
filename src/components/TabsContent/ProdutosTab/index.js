@@ -5,30 +5,29 @@ import ReadOnly from './ReadOnly';
 import Editable from './Editable'
 import './style.css';
 
-export const ProdutosTab = () => {
+export const ProdutosTab = ({ produtosResponse }) => {
+  const token = JSON.parse(sessionStorage.getItem('@token'));
+  const data = JSON.parse(sessionStorage.getItem('@user'));
 
 
-  const [produtos, setprodutos] = useState(null);
+  const [produtos, setprodutos] = useState(produtosResponse);
   const [addFormData, setAddFormData] = useState({
-    fullName: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
-  });
-
-  const response = api.get('/sanduiche').then(res => {
-    setprodutos(res);
-    return res;
+    descricao: "",
+    preco: "",
+    tipo: "",
+    desconto: "",
+    isAvailable: "",
   });
 
   const [editFormData, setEditFormData] = useState({
-    fullName: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
+    descricao: "",
+    preco: "",
+    tipo: "",
+    desconto: "",
+    isAvailable: "",
   });
 
-  const [editContactId, setEditContactId] = useState(null);
+  const [editprodutoId, setEditprodutoId] = useState(null);
 
   const handleAddFormChange = (event) => {
     event.preventDefault();
@@ -54,68 +53,56 @@ export const ProdutosTab = () => {
     setEditFormData(newFormData);
   };
 
-  const handleAddFormSubmit = (event) => {
-    event.preventDefault();
-
-    const newContact = {
-      id: nanoid(),
-      fullName: addFormData.fullName,
-      address: addFormData.address,
-      phoneNumber: addFormData.phoneNumber,
-      email: addFormData.email,
-    };
-
-    const newprodutos = [...produtos, newContact];
-    setprodutos(newprodutos);
-  };
-
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
 
-    const editedContact = {
-      id: editContactId,
-      fullName: editFormData.fullName,
-      address: editFormData.address,
-      phoneNumber: editFormData.phoneNumber,
-      email: editFormData.email,
+    const editedproduto = {
+      _id: editprodutoId,
+      descricao: editFormData.descricao,
+      preco: editFormData.preco,
+      tipo: editFormData.tipo,
+      desconto: editFormData.desconto,
+      isAvailable: editFormData.isAvailable
+
     };
-
-    const newprodutos = [...produtos];
-
-    const index = produtos.findIndex((contact) => contact.id === editContactId);
-
-    newprodutos[index] = editedContact;
-
-    setprodutos(newprodutos);
-    setEditContactId(null);
+    try {
+      api.put(`sanduiche/update/:${editedproduto._id}`, {
+        headers: {
+          authorization: `Bearer ${data._id}`,
+          body: editedproduto,
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleEditClick = (event, contact) => {
+  const handleEditClick = (event, produto) => {
     event.preventDefault();
-    setEditContactId(contact.id);
+    setEditprodutoId(produto._id);
 
     const formValues = {
-      fullName: contact.fullName,
-      address: contact.address,
-      phoneNumber: contact.phoneNumber,
-      email: contact.email,
+      _id: produto._id,
+      descricao: produto.descricao,
+      preco: produto.preco,
+      tipo: produto.tipo,
+      desconto: produto.desconto,
+      isAvailable: produto.isAvailable,
     };
 
     setEditFormData(formValues);
   };
 
   const handleCancelClick = () => {
-    setEditContactId(null);
+    setEditprodutoId(null);
   };
 
-  const handleDeleteClick = (contactId) => {
-    const newprodutos = [...produtos];
-
-    const index = produtos.findIndex((contact) => contact.id === contactId);
-
-    newprodutos.splice(index, 1);
-
-    setprodutos(newprodutos);
+  const handleDeleteClick = (produtoId) => {
+    api.delete(`sanduiche/delete/:${produtoId}`, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    })
   };
 
   return (
@@ -124,27 +111,29 @@ export const ProdutosTab = () => {
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone Number</th>
-              <th>Email</th>
-              <th>Actions</th>
+              <th>Descicao</th>
+              <th>Preço</th>
+              <th>Tipo</th>
+              <th>Desconto</th>
+              <th>Disponível</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
-            {produtos.map((contact) => (
+            {console.log(data)}
+            {produtos.map((produto) => (
               <>
-                {editContactId === contact.id ? (
+                {editprodutoId === produto._id ? (
                   <Editable
                     editFormData={editFormData}
                     handleEditFormChange={handleEditFormChange}
                     handleCancelClick={handleCancelClick}
+                    handleDeleteClick={handleDeleteClick}
                   />
                 ) : (
                   <ReadOnly
-                    contact={contact}
+                    produto={produto}
                     handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
                   />
                 )}
               </>

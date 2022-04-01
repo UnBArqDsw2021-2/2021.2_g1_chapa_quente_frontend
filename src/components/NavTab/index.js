@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import api from '../../services';
 import './style.css';
-
+import { Loading } from '../Loading';
 import { NavTabItem } from '../NavTabItem';
 import { NavTabContent } from '../NavTabContent';
-// import { ProdutosTab } from "../TabsContent/ProdutosTab"
+import { ProdutosTab } from "../TabsContent/ProdutosTab"
 import { UsuariosTab } from '../TabsContent/UsuariosTab';
-import api from '../../services';
-import { Loading } from '../Loading';
 
 export const NavTab = () => {
-  const token = JSON.parse(sessionStorage.getItem('@token'));
+  
 
   const [produtos, setProdutos] = useState();
   const [load, setload] = useState(true);
 
   const getData = async () => {
     try {
-      const response = await api.get('/cliente/all', {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await api.get('/sanduiche');
 
       setProdutos(response.data);
     } catch (error) {
@@ -67,10 +62,7 @@ export const NavTab = () => {
           </ul>
           <div className="outlet">
             <NavTabContent id="produtos" activeTab={activeTab}>
-              {/* <ProdutosTab produtos={produtos !== undefined ? produtos : []}/> */}
-              {produtos.map(data => (
-                <p>{data.nome}</p>
-              ))}
+              <ProdutosTab produtosResponse={produtos}/>
             </NavTabContent>
             <NavTabContent id="usuarios" activeTab={activeTab}>
               <UsuariosTab />
