@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
+// import { Footer } from '../components/Footer';
 import { ProtectedLayout } from '../components/ProtectedLayout';
 import { PerfilUsuario } from '../components/PerfilUsuario';
 import { Login } from '../components/Login';
@@ -30,7 +30,7 @@ export const RoutesChapa = () => {
         />
         <Route path="*" element={<h1>Pagina Não Encontrada</h1>} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 };

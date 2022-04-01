@@ -1,0 +1,12 @@
+.produtos-tab-table{
+  width: 100%;
+}
+
+.produtos-tab-tr{
+  background-color: blue;
+}
+
+.produtos-tab-td{
+  background-color: red;
+  text-align: center;
+}
