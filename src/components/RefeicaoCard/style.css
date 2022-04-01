@@ -1,52 +1,57 @@
 .container {
-    height: 50vh;
-    width: 80%;
-    border-radius: 5px;
-    background-color: #F3DFD4;
-    display: flex;
-    flex-direction: column;
+  height: 50vh;
+  width: 80%;
+  border-radius: 5px;
+  background-color: #f3dfd4;
+  display: flex;
+  flex-direction: column;
+  padding: 9px;
 }
 
 @media (max-width: 415px) {
-    .container{
-        height: 25vh;
-        width: 60%;
-        border-radius: 5px;
-        background-color: #F3DFD4;
-        display: flex;
-        flex-direction: column;
-    }
+  .container {
+    height: 25vh;
+    width: 60%;
+    border-radius: 5px;
+    background-color: #f3dfd4;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 768px) {
-    .container-img-refeicaocard{
-        height: 7vh;
-    }
+  .container-img-refeicaocard {
+    height: 7vh;
+  }
 }
 
-.container-img-refeicaocard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    width: 100%;
-    height: 20vh;
+.container-img-refeicaocard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 20vh;
 }
 
-.container-name-food-refeicaocard{
-    display: flex;
-    margin: 4%;
-    justify-content: center;
-    align-items: center;
-    margin: 1em 0 1em 0;
+.container-name-food-refeicaocard {
+  display: flex;
+  margin: 4%;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0 1em 0;
 }
 
-.container-name-food-refeicaocard p{
-    justify-content: center;
-    align-items: center;
-    font-size: 0.8rem;
+.container-name-food-refeicaocard p {
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.container-button-refeicaocard{
-    margin: 2%;
+.container-button-refeicaocard {
+  margin: 2%;
+  display: flex;
+  justify-content: center;
 }

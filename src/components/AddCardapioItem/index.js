@@ -1,18 +1,21 @@
 import React from 'react';
 import './style.css';
+import { FaPlus } from 'react-icons/fa';
 
-export const AddCardapioItem = ({price}) => {
-
-  return(
-  <>
-    <div className='container-add-button-cardapio'>
+export const AddCardapioItem = ({ price }) => {
+  return (
+    <>
+      <div className="container-add-button-cardapio">
         <div className="price-container">
-            <p>{price}</p>
+          <p>
+            <span className='icons-money'>R$</span>
+            <span className="bold-price">{price}</span>
+          </p>
         </div>
         <div className="icon-container">
-            <p>+</p>
+          <FaPlus className="icon-plus" />
         </div>
-    </div>
-  </>
-  )
+      </div>
+    </>
+  );
 };
