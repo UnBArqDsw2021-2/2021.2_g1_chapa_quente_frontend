@@ -111,10 +111,10 @@
   justify-content: space-around;
 }
 
-#btn-to-delete{
+#btn-to-delete {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  
+  justify-content: space-between;
   width: 80%;
 }
 
@@ -133,16 +133,16 @@
   border: none;
 }
 
-#btn-to-delete > button:first-child{
-  background-color: #fd4a38;  
+#btn-to-delete > button:first-child {
+  background-color: #fd4a38;
 }
 
-#btn-to-delete > button:last-child{
-  background-color: #22c76e;  
+#btn-to-delete > button:last-child {
+  background-color: #22c76e;
 }
 
-#modal-title {  
+#modal-title {
   width: 100%;
   text-align: center;
-  padding-bottom: 60px ;
+  padding-bottom: 60px;
 }

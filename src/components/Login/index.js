@@ -46,9 +46,6 @@ export const Login = () => {
       const response = await api.post('/signin', values).then(res => {
         return res;
       });
-      // console.log(response.status);
-      // console.log(response.data);
-      // console.log(response.data.token);
 
       if (response.status === 200) {
         sessionStorage.setItem('@user', JSON.stringify(response.data.pessoa));
@@ -75,6 +72,7 @@ export const Login = () => {
             placeholder="Email"
             onChange={onChange}
           />
+
           <input
             className="login-usuario-input"
             id="senha"
