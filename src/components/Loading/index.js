@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
-import './styles.css'
+import './styles.css';
 
 export const Loading = () => {
   return (

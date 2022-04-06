@@ -40,7 +40,6 @@ export const CadastroUsuario = () => {
       }
 
       if (result.data.erro) {
-        console.log('ERER');
         setMsgError(true);
       }
     } catch (error) {
@@ -94,7 +93,7 @@ export const CadastroUsuario = () => {
             placeholder="Email"
             onChange={onChange}
           />
-          {msgError && <span id='error-cadastro'>Email já utilizado!</span>}
+          {msgError && <span id="error-cadastro">Email já utilizado!</span>}
 
           <input
             className="cadastro-usuario-input"

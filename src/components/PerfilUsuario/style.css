@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin: auto;
+  max-width: 305px;
 }
 
 .perfil-usuario-div h3 {
@@ -83,23 +84,65 @@
   top: 0;
   width: 100%;
   height: 30px;
-  background-color:#22C76E;
+  background-color: #22c76e;
   color: #fff;
-  display : flex;
-  align-items : center;
-  justify-content : center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
 }
 
-#error-profile{
+#error-profile {
   position: fixed;
   top: 0;
   width: 100%;
   height: 30px;
-  background-color:#fd4a38;
+  background-color: #fd4a38;
   color: #fff;
-  display : flex;
-  align-items : center;
-  justify-content : center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
+}
+
+#btn-usuario {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#btn-to-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.btn-modal {
+  font-weight: bold;
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+
+  padding: 15px 51px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+}
+
+#btn-to-delete > button:first-child {
+  background-color: #fd4a38;
+}
+
+#btn-to-delete > button:last-child {
+  background-color: #22c76e;
+}
+
+#modal-title {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 60px;
 }
