@@ -3,7 +3,7 @@ import './style.css';
 import { AddCardapioItem } from '../AddCardapioItem';
 import sanduicheChapaQuente from '../../assets/sanduiche.png';
 
-export const RefeicaoCard = ({name, price}) => {
+export const RefeicaoCard = ({itemInfo}) => {
 
   return(
   <>
@@ -12,10 +12,10 @@ export const RefeicaoCard = ({name, price}) => {
           <img src={sanduicheChapaQuente} alt="sanduiche"  width="80%" height="110px"/>
         </div>
         <div className="container-name-food-refeicaocard">
-          <p>{name}</p>
+          <p>{itemInfo.descricao}</p>
         </div>
         <div className="container-button-refeicaocard">
-          <AddCardapioItem price={price}/>
+          <AddCardapioItem itemInfo={itemInfo}/>
         </div>
     </div>
   </>

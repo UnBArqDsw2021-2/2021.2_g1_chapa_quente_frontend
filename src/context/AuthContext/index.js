@@ -8,6 +8,7 @@ const AuthProvider = ({ children }) => {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const [user, setUser] = useState({});
   const [token, setToken] = useState();
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     const dataUser = sessionStorage.getItem('@user');
@@ -38,6 +39,8 @@ const AuthProvider = ({ children }) => {
         setIsAuthenticate,
         logOut,
         token,
+        order,
+        setOrder,
       }}
     >
       {children}

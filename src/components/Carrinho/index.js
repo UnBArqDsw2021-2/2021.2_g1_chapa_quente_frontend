@@ -1,8 +1,9 @@
 import React from 'react';
+import { useAuth } from '../../context/AuthContext';
 import './style.css';
 
 export const Carrinho = () => {
-
+    const { order } = useAuth();
 
     return (
         <div className="carrinho-container">
@@ -12,7 +13,16 @@ export const Carrinho = () => {
                 </div>
                 <div className="carrinho-inside-card" >
                     <div className="carrinho-box">
-                        {funcao de mapping}
+                        {order.map(item => (
+                            <div
+                            className="pedido-item"
+                            >
+                                {console.log("item =>", item)}
+                                <p> 
+                                    {item.descricao}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                     <div className="carrinho-confirm-button">
                         Confirmar Pedido
