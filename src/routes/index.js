@@ -8,6 +8,7 @@ import { PerfilUsuario } from '../components/PerfilUsuario';
 import { Login } from '../components/Login';
 import { CadastroUsuario } from '../components/CadastroUsuario';
 import { CadastroProduto } from '../components/CadastroProduto';
+import { Carrinho } from '../components/Carrinho';
 
 export const RoutesChapa = () => {
   return (
@@ -18,7 +19,7 @@ export const RoutesChapa = () => {
         <Route exact path="/cardapio" element={<ListaCardapio />} />
         <Route exact path="/chapaquenters" element={<h1>ChapaQuenters</h1>} />
         <Route exact path="/login" element={<Login />} />
-        <Route exact path="/carrinho" element={<h1>Carrinho</h1>} />
+        <Route exact path="/carrinho" element={<Carrinho />} />
         <Route exact path="/cadastro" element={<CadastroUsuario />} />
         <Route exact path="/cadastro-produto" element={<CadastroProduto />} />
         <Route
