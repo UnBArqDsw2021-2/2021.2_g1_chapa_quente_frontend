@@ -8,8 +8,6 @@ import { ProdutosTab } from "../TabsContent/ProdutosTab"
 import { UsuariosTab } from '../TabsContent/UsuariosTab';
 
 export const NavTab = () => {
-  
-
   const [produtos, setProdutos] = useState();
   const [load, setload] = useState(true);
 

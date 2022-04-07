@@ -53,9 +53,15 @@ export const ProdutosTab = ({ produtosResponse }) => {
     setEditFormData(newFormData);
   };
 
-  const handleEditFormSubmit = (event) => {
-    event.preventDefault();
+  const handleDeleteClick = (produtoId) => {
+    api.delete(`sanduiche/delete/:${produtoId}`, {
+      headers: {
+        authorization: `Bearer ${token}`
+      }
+    })
+  };
 
+  const handleEditFormSubmit = async (event) => {
     const editedproduto = {
       _id: editprodutoId,
       descricao: editFormData.descricao,
@@ -63,15 +69,17 @@ export const ProdutosTab = ({ produtosResponse }) => {
       tipo: editFormData.tipo,
       desconto: editFormData.desconto,
       isAvailable: editFormData.isAvailable
-
     };
     try {
-      api.put(`sanduiche/update/:${editedproduto._id}`, {
-        headers: {
-          authorization: `Bearer ${data._id}`,
-          body: editedproduto,
-        }
-      });
+      const res = await api.put(`sanduiche/update/:${editedproduto._id}`,
+        editFormData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          }
+        });
     } catch (error) {
       console.log(error);
     }
@@ -97,30 +105,21 @@ export const ProdutosTab = ({ produtosResponse }) => {
     setEditprodutoId(null);
   };
 
-  const handleDeleteClick = (produtoId) => {
-    api.delete(`sanduiche/delete/:${produtoId}`, {
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    })
-  };
-
   return (
     <div className="produtos-tab">
       <form onSubmit={handleEditFormSubmit}>
-        <table>
+        <table className='table-produto'>
           <thead>
             <tr>
-              <th>Descicao</th>
-              <th>Preço</th>
-              <th>Tipo</th>
-              <th>Desconto</th>
-              <th>Disponível</th>
-              <th>Ações</th>
+              <th className='th-produto-edit'>Descicao</th>
+              <th className='th-produto-edit'>Preço</th>
+              <th className='th-produto-edit'>Tipo</th>
+              <th className='th-produto-edit'>Desconto</th>
+              <th className='th-produto-edit'>Disponível</th>
+              <th className='th-produto-edit'>Ações</th>
             </tr>
           </thead>
           <tbody>
-            {console.log(data)}
             {produtos.map((produto) => (
               <>
                 {editprodutoId === produto._id ? (
