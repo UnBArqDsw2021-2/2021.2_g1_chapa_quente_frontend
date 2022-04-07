@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Form } from 'react-bootstrap';
 import api from '../../services';
 import './style.css';
+import { useAuth } from '../../context/AuthContext';
 
 export const CadastroProduto = () => {
+  const [productType, setProductType] = useState("acompanhamento");
   const initialValue = {
     descricao: '',
     preco: '',
@@ -12,17 +14,15 @@ export const CadastroProduto = () => {
     tamanho: '',
     gelo: '',
     adicional: '',
+    tipo: productType,
     isAvailable: true,
   };
-
-  const data = JSON.parse(sessionStorage.getItem('@user'));
-  const token = data?.token;
+  const { token } = useAuth();
 
   const navigate = useNavigate();
 
   const [values, setValues] = useState(initialValue);
   const [msgSuccess, setMsgSuccess] = useState(false);
-  const [productType, setProductType] = useState("acompanhamento");
 
   function onChange(ev) {
     const { name, value } = ev.target;
@@ -134,15 +134,6 @@ export const CadastroProduto = () => {
                     type="text"
                     required
                     placeholder="Descrição"
-                    onChange={onChange}
-                />
-                <input
-                    className="cadastro-produto-input"
-                    id="tipo"
-                    name="tipo"
-                    type="text"
-                    required
-                    placeholder="Tipo"
                     onChange={onChange}
                 />
                 <input

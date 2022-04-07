@@ -1,5 +1,5 @@
 .carrinho-container {
-    height: 50vh;
+    height: 100%;
     width: 100%;
     background-color: white;
     padding: 9px;
@@ -27,8 +27,15 @@
     width: 100%;
 }
 
+.carrinho-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
 .carrinho-inside-card { 
-    background-color: white;
     width: 80%;
     height: 100%;
     border-radius: 5px;
@@ -46,5 +53,43 @@
     cursor: pointer;
     font-size: 23px;
     padding: 10px;
+    margin: 10px;
 }
-  
+
+.pedido-item { 
+    width: 100%;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pedido-inside-container { 
+    background-color: white;
+    width: 100%;
+    height: min-content;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.item-field {
+    margin: 5px;
+    text-align: center;
+}
+
+.carrinho-header { 
+    width: 100%;
+    height: min-content;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+}
