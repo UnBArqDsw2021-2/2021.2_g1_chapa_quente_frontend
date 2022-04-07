@@ -7,12 +7,14 @@ import { useAuth } from '../../context/AuthContext';
 
 export const CadastroProduto = () => {
   const [productType, setProductType] = useState("acompanhamento");
+  const [comGelo, setComGelo] = useState(false);
+  console.log(comGelo);
   const initialValue = {
     descricao: '',
     preco: '',
     desconto: '',
     tamanho: '',
-    gelo: '',
+    comGelo,
     adicional: '',
     tipo: productType,
     isAvailable: true,
@@ -32,6 +34,7 @@ export const CadastroProduto = () => {
 
   const onSubmit = async ev => {
     ev.preventDefault();
+    
     const result = await api.post(`/${productType}/create`, values, { headers: {"Authorization" : `Bearer ${token}`}});
     if (result.status === 201) {
       setValues(initialValue);
@@ -80,15 +83,19 @@ export const CadastroProduto = () => {
                             placeholder="Tamanho"
                             onChange={onChange}
                         />
-                        <input
-                            className="cadastro-produto-input"
-                            id="gelo"
-                            name="comGelo"
-                            type="boolean"
-                            required
-                            placeholder="Gelo"
-                            onChange={onChange}
-                        />
+                        <Form.Select 
+                            className="cadastro-produto-dropdown"
+                            aria-label="Com gelo"
+                            onChange={(Option) => 
+                              {
+                                if(Option.target.value === "true") setComGelo(true)
+                                else setComGelo(false)
+                              }
+                            }
+                        >
+                            <option value="true">Com gelo</option>
+                            <option value="false">Sem gelo</option>
+                        </Form.Select>
                     </>
                 )
             case 'sanduiche':
