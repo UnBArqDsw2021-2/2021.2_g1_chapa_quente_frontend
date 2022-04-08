@@ -10,7 +10,7 @@ export const AddCardapioItem = ({ itemInfo }) => {
     setOrder({ ...order,
       [itemInfo.tipo]: order?.[itemInfo.tipo]?.concat([itemInfo]),
       valorTotal: order?.valorTotal + itemInfo.preco,
-      clienteId: user.pessoa._id,
+      clienteId: user._id,
     });
 
     setPreOrder([ ...preOrder, itemInfo])

@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
       setUser(data);
       setToken(tokenData);
     }
-  }, []);
+  }, [sessionStorage.getItem('@token')]);
 
   const logOut = () => {
     setIsAuthenticate(false);
@@ -64,6 +64,7 @@ const AuthProvider = ({ children }) => {
 
 function useAuth() {
   const context = useContext(AuthContext);
+  console.log(context)
   return context;
 }
 
