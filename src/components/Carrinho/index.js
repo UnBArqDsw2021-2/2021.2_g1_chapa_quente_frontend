@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../services';
 import './style.css';
+import { PedidoItem } from '../PedidoItem';
 
 export const Carrinho = () => {
     const {setOrder, order, setPreOrder, preOrder, token} = useAuth();
@@ -37,21 +38,7 @@ export const Carrinho = () => {
 
     const showItems = () => (
         preOrder.map(item => (
-            <div
-            className="pedido-item"
-            >
-                <div className="pedido-inside-container"> 
-                    <div className="item-field">
-                        {item.descricao}
-                    </div>
-                    <div className="item-field">
-                        {item.preco}
-                    </div>
-                    <div className="item-field">
-                        {item?.tamanho}
-                    </div>
-                </div>
-            </div>
+            <PedidoItem item={item} />
         ))
     )
 

@@ -9,8 +9,11 @@ import { Login } from '../components/Login';
 import { CadastroUsuario } from '../components/CadastroUsuario';
 import { CadastroProduto } from '../components/CadastroProduto';
 import { Carrinho } from '../components/Carrinho';
+import { ListaPedidosCliente } from '../components/ListaPedidosCliente';
+import { useAuth } from '../context/AuthContext';
 
 export const RoutesChapa = () => {
+  const {funcao} = useAuth();
   return (
     <Router>
       <Header />
@@ -22,6 +25,11 @@ export const RoutesChapa = () => {
         <Route exact path="/carrinho" element={<Carrinho />} />
         <Route exact path="/cadastro" element={<CadastroUsuario />} />
         <Route exact path="/cadastro-produto" element={<CadastroProduto />} />
+        {
+          funcao === "cliente" 
+          ?  <Route exact path="/lista-pedidos" element={<ListaPedidosCliente/>} />
+          : <Route exact path="/lista-pedidos" element={<ListaPedidosCliente/>} />
+        }
         <Route
           exact
           path="/perfil"
