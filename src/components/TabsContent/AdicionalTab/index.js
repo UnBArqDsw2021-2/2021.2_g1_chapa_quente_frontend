@@ -5,12 +5,10 @@ import ReadOnly from './ReadOnly';
 import Editable from './Editable'
 import './style.css';
 
-export const ProdutosTab = ({ produtosResponse }) => {
+export const AdicionalTab = ({ adicionalResponse }) => {
   const token = JSON.parse(sessionStorage.getItem('@token'));
-  const data = JSON.parse(sessionStorage.getItem('@user'));
 
-
-  const [produtos, setprodutos] = useState(produtosResponse);
+  const [adicional, setadicional] = useState(adicionalResponse);
   const [addFormData, setAddFormData] = useState({
     descricao: "",
     preco: "",
@@ -54,7 +52,8 @@ export const ProdutosTab = ({ produtosResponse }) => {
   };
 
   const handleDeleteClick = (produtoId) => {
-    api.delete(`sanduiche/delete/:${produtoId}`, {
+    window.location.reload(false);
+    api.delete(`adicional/delete/:${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -71,7 +70,7 @@ export const ProdutosTab = ({ produtosResponse }) => {
       isAvailable: editFormData.isAvailable
     };
     try {
-      const res = await api.put(`sanduiche/update/:${editedproduto._id}`,
+      const res = await api.put(`adicional/update/:${editedproduto._id}`,
         editFormData,
         {
           headers: {
@@ -106,7 +105,7 @@ export const ProdutosTab = ({ produtosResponse }) => {
   };
 
   return (
-    <div className="produtos-tab">
+    <div className="adicional-tab">
       <form onSubmit={handleEditFormSubmit}>
         <table className='table-produto'>
           <thead>
@@ -120,7 +119,7 @@ export const ProdutosTab = ({ produtosResponse }) => {
             </tr>
           </thead>
           <tbody>
-            {produtos.map((produto) => (
+            {adicional.map((produto) => (
               <>
                 {editprodutoId === produto._id ? (
                   <Editable
