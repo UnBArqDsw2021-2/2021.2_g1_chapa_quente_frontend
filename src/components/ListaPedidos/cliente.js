@@ -38,8 +38,8 @@ export const ListaPedidosCliente = () => {
       {load ? (
         <Loading />
       ) : (
-        <div className="container-list">
-          <div className="cards">
+        <div className="container-pedidos-list">
+          <div className="cards-pedidos">
             {orders.map(item => (
               <PedidoResumoCliente
                 item={item}

@@ -4,13 +4,13 @@ import { FaPlus } from 'react-icons/fa';
 import { useAuth } from '../../context/AuthContext';
  
 export const AddCardapioItem = ({ itemInfo }) => {
-  const { order, setOrder, preOrder, setPreOrder, _id } = useAuth();
+  const { order, setOrder, preOrder, setPreOrder, user } = useAuth();
 
   const addOrder = () => {
     setOrder({ ...order,
       [itemInfo.tipo]: order?.[itemInfo.tipo]?.concat([itemInfo]),
       valorTotal: order?.valorTotal + itemInfo.preco,
-      clienteId: _id,
+      clienteId: user.pessoa._id,
     });
 
     setPreOrder([ ...preOrder, itemInfo])

@@ -77,8 +77,8 @@ export const ListaPedidosFuncionario = () => {
       {load ? (
         <Loading />
       ) : (
-        <div className="container-list">
-          <div className="cards">
+        <div className="container-pedidos-list">
+          <div className="cards-pedidos">
             {orders.map(item => (
               <PedidoResumo
                 item={item}
