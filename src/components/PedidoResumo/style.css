@@ -1,47 +1,58 @@
-.pedido-item { 
-    width: 100%;
-    height: min-content;
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
+.pedido-item {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
-.pedido-inside-container { 
-    border: 2px solid #f3dfd4;
-    width: 100%;
-    height: min-content;
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: 3fr 1fr 1fr;
-    padding: 5px;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
+.pedido-inside-container {
+  border: 2px solid #f3dfd4;
+  width: 100%;
+  height: min-content;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 }
 
 .item-field {
-    margin: 5px;
-    text-align: center;
+  margin: 5px;
+  text-align: center;
 }
 
 .confirmar-estado-button {
-    background-color: #d35032;
-    font-size: 20px;
-    color: white;
-    border-radius: 5px;
-    padding: 7px;
-    text-align: center;
-    cursor: pointer;
+  background-color: #d35032;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 7px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .estado-pedido-dropdown {
+  color: black;
+  background-color: #efd9d4;
+  border: none;
+  height: 40px;
+  width: 305px;
+  border-radius: 5px;
+  margin: 15px;
+}
+
+.estado-pedido-cliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
     background-color: #efd9d4;
-    border: none;
-    height: 40px;
-    width: 305px;
     border-radius: 5px;
-    margin: 15px;
-  }
+    height: 40px;
+    width: 160px;
+}

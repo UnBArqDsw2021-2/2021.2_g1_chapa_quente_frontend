@@ -9,11 +9,27 @@ import { Login } from '../components/Login';
 import { CadastroUsuario } from '../components/CadastroUsuario';
 import { CadastroProduto } from '../components/CadastroProduto';
 import { Carrinho } from '../components/Carrinho';
-import { ListaPedidosCliente } from '../components/ListaPedidosCliente';
 import { useAuth } from '../context/AuthContext';
+import { ListaPedidosCliente } from '../components/ListaPedidos/cliente';
+import { ListaPedidosFuncionario } from '../components/ListaPedidos/funcionario';
+
 
 export const RoutesChapa = () => {
-  const {funcao} = useAuth();
+  const {user} = useAuth();
+
+  const listaPedidosRoutes = () => {
+    switch (user.funcao) {
+      case "Cliente":
+        return <Route exact path="/lista-pedidos" element={<ListaPedidosCliente/>} />;
+      case "Funcionario":
+        return <Route exact path="/lista-pedidos" element={<ListaPedidosFuncionario/>} />
+      case "Entregador":
+        return <Route exact path="/lista-pedidos" />
+      default:
+        return null;
+    }
+  }
+
   return (
     <Router>
       <Header />
@@ -25,11 +41,7 @@ export const RoutesChapa = () => {
         <Route exact path="/carrinho" element={<Carrinho />} />
         <Route exact path="/cadastro" element={<CadastroUsuario />} />
         <Route exact path="/cadastro-produto" element={<CadastroProduto />} />
-        {
-          funcao === "cliente" 
-          ?  <Route exact path="/lista-pedidos" element={<ListaPedidosCliente/>} />
-          : <Route exact path="/lista-pedidos" element={<ListaPedidosCliente/>} />
-        }
+        {listaPedidosRoutes()}
         <Route
           exact
           path="/perfil"

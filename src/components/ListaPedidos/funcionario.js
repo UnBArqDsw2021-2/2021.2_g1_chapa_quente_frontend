@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+// import './style.css';
 import './style.css';
 import api from '../../services';
 import { Loading } from '../Loading';
 import { useAuth } from '../../context/AuthContext';
 import { PedidoResumo } from '../PedidoResumo';
 
-export const ListaPedidosCliente = () => {
+export const ListaPedidosFuncionario = () => {
   const [orders, setOrders] = useState([]);
 //   const [mergeAll, setMergeAll] = useState([]);
   const [load, setLoad] = useState(true);
