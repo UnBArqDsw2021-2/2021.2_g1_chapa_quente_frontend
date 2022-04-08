@@ -110,7 +110,7 @@ export const SobremesaTab = ({ sobremesaResponse }) => {
         <table className='table-produto'>
           <thead>
             <tr>
-              <th className='th-produto-edit'>Descicao</th>
+              <th className='th-produto-edit'>Descrição</th>
               <th className='th-produto-edit'>Preço</th>
               <th className='th-produto-edit'>Tipo</th>
               <th className='th-produto-edit'>Desconto</th>

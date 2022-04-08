@@ -11,6 +11,7 @@ const ReadOnly = ({ produto, handleEditClick }) => {
       <td className="td-produto-edit">{produto.tipo}</td>
       <td className="td-produto-edit">{produto.desconto}</td>
       <td className="td-produto-edit">{produto.isAvailable ? "Sim" : "Não"}</td>
+      <td className="td-produto-edit">{produto.tamanho}</td>
       <td className="td-produto-edit">
         <button
           className="button-produto-edit"

@@ -62,10 +62,20 @@ const Editable = ({
         </select>
       </td>
       <td>
+        <select className="input-produto-form"
+          name="tamanho"
+          value={editFormData.tamanho}
+          onChange={handleEditFormChange}
+        >
+          <option className="input-produto-form" value="P">P</option>
+          <option className="input-produto-form" value="M">M</option>
+          <option className="input-produto-form" value="G">G</option>
+        </select>
+      </td>
+      <td>
         <button className="button-produto-edit" type="submit"> <FaSave size={20} /></button>
         <button className="button-produto-edit" type="button" onClick={handleCancelClick}>
           <GiCancel size={20} />
-          {console.log(editFormData.isAvailable)}
         </button>
         <button className="button-produto-edit" type="button" onClick={() => handleDeleteClick(editFormData._id)}>
           <RiDeleteBin2Fill size={20} />

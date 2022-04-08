@@ -15,6 +15,8 @@ export const BebidaTab = ({ bebidaResponse }) => {
     tipo: "",
     desconto: "",
     isAvailable: "",
+    tamanho: "",
+    comGelo: ""
   });
 
   const [editFormData, setEditFormData] = useState({
@@ -23,6 +25,8 @@ export const BebidaTab = ({ bebidaResponse }) => {
     tipo: "",
     desconto: "",
     isAvailable: "",
+    tamanho: "",
+    comGelo: ""
   });
 
   const [editprodutoId, setEditprodutoId] = useState(null);
@@ -67,7 +71,9 @@ export const BebidaTab = ({ bebidaResponse }) => {
       preco: editFormData.preco,
       tipo: editFormData.tipo,
       desconto: editFormData.desconto,
-      isAvailable: editFormData.isAvailable
+      isAvailable: editFormData.isAvailable,
+      tamanho: editFormData.tamanho,
+      comGelo: editFormData.comGelo
     };
     try {
       const res = await api.put(`bebida/update/:${editedproduto._id}`,
@@ -110,11 +116,12 @@ export const BebidaTab = ({ bebidaResponse }) => {
         <table className='table-produto'>
           <thead>
             <tr>
-              <th className='th-produto-edit'>Descicao</th>
+              <th className='th-produto-edit'>Descrição</th>
               <th className='th-produto-edit'>Preço</th>
               <th className='th-produto-edit'>Tipo</th>
               <th className='th-produto-edit'>Desconto</th>
               <th className='th-produto-edit'>Disponível</th>
+              <th className='th-produto-edit'>Tamanho</th>
               <th className='th-produto-edit'>Ações</th>
             </tr>
           </thead>

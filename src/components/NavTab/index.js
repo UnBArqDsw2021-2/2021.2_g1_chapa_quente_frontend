@@ -13,10 +13,11 @@ import { UsuariosTab } from '../TabsContent/UsuariosTab';
 
 export const NavTab = () => {
   const [sanduiche, setSanduiche] = useState();
-  const [sobremesa, setSobremesa] = useState();
-  const [bebida, setBebida] = useState();
-  const [acompanhamento, setAcompanhamento] = useState();
   const [adicional, setAdicional] = useState();
+  const [acompanhamento, setAcompanhamento] = useState();
+  const [bebida, setBebida] = useState();
+  const [sobremesa, setSobremesa] = useState();
+  const [activeTab, setActiveTab] = useState('acompanhamento');
 
   const [load, setload] = useState(true);
 
@@ -62,14 +63,13 @@ export const NavTab = () => {
   }, []);
 
   useEffect(() => {
-    if (sanduiche !== undefined && sobremesa !== undefined && acompanhamento !== undefined&& bebida !== undefined&& adicional !== undefined) {
+    if ((sanduiche !== undefined) && (sobremesa !== undefined) && (acompanhamento !== undefined) && (bebida !== undefined) && (adicional !== undefined)) {
       setload(false);
     } else {
       setload(true);
     }
   }, [sanduiche, sobremesa, bebida, acompanhamento, adicional]);
 
-  const [activeTab, setActiveTab] = useState('sanduiche');
   return (
     <>
       {load ? (
@@ -81,14 +81,6 @@ export const NavTab = () => {
               <NavTabItem
                 title="Sanduíche"
                 id="sanduiche"
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
-            </li>
-            <li>
-              <NavTabItem
-                title="Sobremesa"
-                id="sobremesa"
                 activeTab={activeTab}
                 setActiveTab={setActiveTab}
               />
@@ -119,6 +111,14 @@ export const NavTab = () => {
             </li>
             <li>
               <NavTabItem
+                title="Sobremesa"
+                id="sobremesa"
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
+            </li>
+            <li>
+              <NavTabItem
                 title="Usuários"
                 id="usuarios"
                 activeTab={activeTab}
@@ -128,19 +128,19 @@ export const NavTab = () => {
           </ul>
           <div className="outlet">
             <NavTabContent id="sanduiche" activeTab={activeTab}>
-              <SanduicheTab sanduicheResponse={sanduiche}/>
-            </NavTabContent>
-            <NavTabContent id="sobremesa" activeTab={activeTab}>
-              <SobremesaTab sobremesaResponse={sobremesa}/>
-            </NavTabContent>
-            <NavTabContent id="acompanhamento" activeTab={activeTab}>
-              <AcompanhamentoTab acompanhamentoResponse={acompanhamento} />
+              <SanduicheTab sanduicheResponse={sanduiche} />
             </NavTabContent>
             <NavTabContent id="adicional" activeTab={activeTab}>
               <AdicionalTab adicionalResponse={adicional} />
             </NavTabContent>
+            <NavTabContent id="acompanhamento" activeTab={activeTab}>
+              <AcompanhamentoTab acompanhamentoResponse={acompanhamento} />
+            </NavTabContent>
             <NavTabContent id="bebida" activeTab={activeTab}>
               <BebidaTab bebidaResponse={bebida} />
+            </NavTabContent>
+            <NavTabContent id="sobremesa" activeTab={activeTab}>
+              <SobremesaTab sobremesaResponse={sobremesa} />
             </NavTabContent>
             <NavTabContent id="usuarios" activeTab={activeTab}>
               <UsuariosTab />

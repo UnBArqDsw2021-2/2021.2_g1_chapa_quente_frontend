@@ -52,8 +52,8 @@ export const SanduicheTab = ({ sanduicheResponse }) => {
   };
 
   const handleDeleteClick = (produtoId) => {
-    window.location.reload(false);
-    api.delete(`sobremesa/delete/:${produtoId}`, {
+    window.location.reload("false");
+    api.delete(`sanduiche/delete/:${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -61,7 +61,6 @@ export const SanduicheTab = ({ sanduicheResponse }) => {
   };
 
   const handleEditFormSubmit = async (event) => {
-    event.preventDefault();
     const editedproduto = {
       _id: editprodutoId,
       descricao: editFormData.descricao,
@@ -111,7 +110,7 @@ export const SanduicheTab = ({ sanduicheResponse }) => {
         <table className='table-produto'>
           <thead>
             <tr>
-              <th className='th-produto-edit'>Descicao</th>
+              <th className='th-produto-edit'>Descrição</th>
               <th className='th-produto-edit'>Preço</th>
               <th className='th-produto-edit'>Tipo</th>
               <th className='th-produto-edit'>Desconto</th>
