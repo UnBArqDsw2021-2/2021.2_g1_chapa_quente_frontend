@@ -1,0 +1,96 @@
+.body-payment{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header-payment{
+    display: flex;
+    flex-direction: column;
+    margin: 5% 0 5% 0;
+}
+
+.container-payment{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.payment-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.payment-cash{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.choosePaymentType{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.cadastro-cartao-input {
+    background-color: #eddcd8;
+    width: 305px;
+    padding: 13px;
+    border: none;
+    outline-style: none;
+    border-radius: 5px;
+}
+
+.icon-card{
+    width: 50px;
+    height: 50px;
+    margin: 0 0 20px 20px;
+}
+
+.icon-cash{
+    width: 50px;
+    height: 50px;
+    margin: 0 0 20px 20px;
+}
+
+.form-cadastro-cartao{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-cadastro-cartao:hover {
+    cursor: pointer;
+    background-color: #f3dfd4;
+    color: #f98942;
+  }
+  
+.btn-cadastro-cartao:active {
+    background-color: white;
+}
+
+.btn-pagamento {
+    border-radius: 5px;
+    background-color: #f98942;
+    border: none;
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 38px;
+    margin-bottom: 46px;
+  }
+  
+  .btn-pagamento:hover {
+    cursor: pointer;
+    background-color: #f3dfd4;
+    color: #f98942;
+  }
+  
+  .btn-pagamento:active {
+    background-color: white;
+  }
+
