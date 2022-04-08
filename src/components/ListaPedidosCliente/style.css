@@ -1,0 +1,14 @@
+.container-list {
+    display: flex;    
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}
