@@ -31,10 +31,11 @@ export const PaymentPage = () => {
     <>
         <div className="body-payment">
             <div className="header-payment">
-                <div>Valor total: R$ 20,00</div>
+                <div className="title-payment">Pagamento</div>
+                <div className="value-payment">Valor total: R$ 20,00</div>
             </div>
+            <div className="escolha-pagamento">Escolha um método de pagamento:</div>
             <div className="container-payment">
-                <div>Pagar com:</div>
                     <div className="choosePaymentType">
                         <div className="payment-card">
                         <FaRegCreditCard className="icon-card"/>
@@ -77,7 +78,7 @@ export const PaymentPage = () => {
                                 onChange={onChange}
                             />
                             <input
-                                className="data-input"
+                                className="cadastro-cartao-input"
                                 id="validade"
                                 name="validade"
                                 type="date"
@@ -96,7 +97,7 @@ export const PaymentPage = () => {
                             />
                         {/* {selectOption()} */}
 
-                        <button type="button" onClick={() => console.log(id)} className="btn-cadastro-cartao">
+                        <button type="button"  onClick={() => console.log(id)} className="btn-cadastro-cartao">
                             Adicionar cartão
                         </button>
                         </form>
