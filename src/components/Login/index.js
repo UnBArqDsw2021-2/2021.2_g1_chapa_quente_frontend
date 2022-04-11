@@ -15,7 +15,6 @@ export const Login = () => {
   const { setUser, setIsAuthenticate, isAuthenticate } = useAuth();
 
   const [values, setValues] = useState(initialValueLogin);
-  const [funcao, setFuncao] = useState();
   const [erroLogin, setErroLogin] = useState(false);
 
   useEffect(() => {
@@ -33,7 +32,6 @@ export const Login = () => {
     }
 
     setValues({ ...values, [name]: value });
-    setFuncao(value);
   };
 
   const redirect = () => {
@@ -52,12 +50,12 @@ export const Login = () => {
       if (response.status === 200) {
         sessionStorage.setItem('@user', JSON.stringify({
           ...response.data.pessoa,
-          funcao
+          funcao: values.tipo
         }));
         sessionStorage.setItem('@token', JSON.stringify(response.data.token));
         setUser({
           ...response.data,
-          funcao
+          funcao: values.tipo
         });
         setIsAuthenticate(true);
       }

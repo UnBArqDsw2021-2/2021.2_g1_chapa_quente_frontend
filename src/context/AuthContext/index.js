@@ -64,7 +64,6 @@ const AuthProvider = ({ children }) => {
 
 function useAuth() {
   const context = useContext(AuthContext);
-  console.log(context)
   return context;
 }
 

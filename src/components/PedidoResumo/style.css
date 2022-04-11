@@ -13,7 +13,7 @@
   width: 100%;
   height: min-content;
   border-radius: 5px;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 3fr 1fr 1fr;
   padding: 5px;
   justify-content: center;
@@ -34,6 +34,7 @@
   padding: 7px;
   text-align: center;
   cursor: pointer;
+  margin-top: 12px;
 }
 
 .estado-pedido-dropdown {
@@ -41,9 +42,8 @@
   background-color: #efd9d4;
   border: none;
   height: 40px;
-  width: 305px;
+  width: 200px;
   border-radius: 5px;
-  margin: 15px;
 }
 
 .estado-pedido-cliente {

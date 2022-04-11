@@ -30,47 +30,15 @@ export const ListaPedidosFuncionario = () => {
   useEffect(() => { 
     if(token){
       try {
-        getPedidosFromApi().then(result =>
-          setOrders(result),
-        );
+        getPedidosFromApi().then((result) => {
+          setOrders(result);
+          setLoad(false);
+        });
       } catch (error) {
         console.log(error);
       }
     }
   }, [token]);
-
-//   useEffect(() => {
-//       console.log('orders =>', orders)
-//     // setMergeOrder([mergeOrder.concat(order?.bebidas,
-//     //     order?.sanduiches,
-//     //     order?.acompanhamentos,
-//     //     order?.sobremesas)])
-//     // )
-
-//     // setOrder({ ...order,
-//     //     [itemInfo.tipo]: order?.[itemInfo.tipo]?.concat([itemInfo]),
-//     //     valorTotal: order?.valorTotal + itemInfo.preco,
-//     //     clienteId: _id,
-//     //   });
-
-//     orders.map((order) => setMergeAll(
-//         mergeAll.concat([].concat(order?.bebidas,
-//             order?.sanduiches,
-//             order?.acompanhamentos,
-//             order?.sobremesas))
-//     ))
-
-//     orders.map((order) => (
-//         order?.bebidas
-//     ))
-//     console.log(mergeAll)
-//   }, [orders]);
-
-  useEffect(() => {
-    if (Object.keys(orders).length > 0) {
-      setLoad(false);
-    }
-  }, [orders]);
 
   return (
     <>
