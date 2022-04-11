@@ -56,3 +56,15 @@
     height: 40px;
     width: 160px;
 }
+
+.arrange-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr ;
+  width: 100%;
+  justify-content: center;
+}
+
+.arrange-container-title {
+  font-weight: bold;
+  font-size: medium;
+}

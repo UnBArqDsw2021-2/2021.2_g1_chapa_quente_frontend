@@ -46,6 +46,17 @@ export const PedidoResumo = ({ item }) => {
         >
           {items.length && (
             <div>
+              <div className="arrange-container">
+                <p className="arrange-container-title">
+                  Tipo:
+                </p>
+                <p className="arrange-container-title">
+                  Produto:
+                </p>
+                <p className="arrange-container-title">
+                  Tamanho:
+                </p>
+              </div>
               {[]
                 .concat(
                   item.acompanhamento,
@@ -56,12 +67,16 @@ export const PedidoResumo = ({ item }) => {
                 )
                 .map(it => {
                   return (
-                    <div>
-                      <h4>
+                    <div className="arrange-container">
+                      <p>
                         {it.tipo.charAt(0).toUpperCase() + it.tipo.slice(1)}
-                      </h4>
-                      {it.descricao}
+                      </p>
+                      <p>
+                        {it.descricao}
+                      </p>
+                      <p>
                       {it.tamanho && ` (${it.tamanho})`}
+                      </p>
                     </div>
                   );
                 })}

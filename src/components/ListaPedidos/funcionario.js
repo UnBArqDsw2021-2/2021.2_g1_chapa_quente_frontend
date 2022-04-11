@@ -8,7 +8,6 @@ import { PedidoResumo } from '../PedidoResumo';
 
 export const ListaPedidosFuncionario = () => {
   const [orders, setOrders] = useState([]);
-//   const [mergeAll, setMergeAll] = useState([]);
   const [load, setLoad] = useState(true);
   const { token } = useAuth();
 
