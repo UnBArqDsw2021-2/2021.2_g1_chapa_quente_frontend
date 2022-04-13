@@ -48,15 +48,22 @@ export const Login = () => {
       });
 
       if (response.status === 200) {
-        sessionStorage.setItem('@user', JSON.stringify(response.data.pessoa));
+        sessionStorage.setItem('@user', JSON.stringify({
+          ...response.data.pessoa,
+          funcao: values.tipo
+        }));
         sessionStorage.setItem('@token', JSON.stringify(response.data.token));
-        setUser(response.data);
+        setUser({
+          ...response.data,
+          funcao: values.tipo
+        });
         setIsAuthenticate(true);
       }
     } catch (error) {
       setErroLogin(true);
     }
   };
+
 
   return (
     <>

@@ -1,64 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import './style.css';
-import { RefeicaoCard } from '../RefeicaoCard';
+import axios from 'axios';
 import api from '../../services';
 import { Loading } from '../Loading';
+import { RefeicaoCard } from '../RefeicaoCard';
 import { useAuth } from '../../context/AuthContext';
+import './style.css';
 
 export const ListaCardapio = () => {
-  const [sanduiches, setSanduiches] = useState([]);
-  const [bebidas, setBebidas] = useState([]);
-  const [acompanhamentos, setAcompanhamentos] = useState([]);
-  const [sobremesas, setSobremesas] = useState([]);
-  const [mergeAll, setMergeAll] = useState([]);
   const [load, setLoad] = useState(true);
-  const { token } = useAuth();
+  const [items, setItems] = useState([]);
 
-  const getCardapioItensFromApi = async type => {
-    const result = await api.get(`/${type}`, {
-      headers: {
-        authorization: `Bearer ${token}`,
-      },
-    });
-    if (result.status === 200) {
-      return result.data;
-    }
-    return result.data.error;
-  };
+  const { token } = useAuth();
+  const tipos = ['sanduiche', 'bebida', 'acompanhamento', 'sobremesa']
 
   useEffect(() => {
-    if(token){
-      try {
-        getCardapioItensFromApi('sanduiche').then(result =>
-          setSanduiches(result),
-        );
-        getCardapioItensFromApi('bebida').then(result => setBebidas(result));
-        getCardapioItensFromApi('acompanhamento').then(result =>
-          setAcompanhamentos(result),
-        );
-        getCardapioItensFromApi('sobremesa').then(result => setSobremesas(result));
-      } catch (error) {
-        console.log(error);
-      }
+    if (token) {
+      axios.all(
+        tipos.map(item =>
+          api.get(`${item}`, {
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          }).then((r) => (r.data)),
+        ),
+      ).then((item) => {
+        setItems([].concat(...item));
+        setLoad(false)
+      });
     }
   }, [token]);
-
-  useEffect(() => {
-    if (
-      bebidas.length !== 0 ||
-      sanduiches.length !== 0 ||
-      acompanhamentos.length !== 0 ||
-      sobremesas.length !== 0 
-    ) {
-      setMergeAll([...bebidas, ...sanduiches, ...acompanhamentos, ...sobremesas]);
-    }
-  }, [sanduiches, bebidas, acompanhamentos, sobremesas]);
-
-  useEffect(() => {
-    if (Object.keys(mergeAll).length > 0) {
-      setLoad(false);
-    }
-  }, [mergeAll]);
 
   return (
     <>
@@ -67,7 +37,7 @@ export const ListaCardapio = () => {
       ) : (
         <div className="container-list">
           <div className="cards">
-            {mergeAll.map(item => (
+            {items.map((item) => (
               <RefeicaoCard
                 itemInfo={item}
               />

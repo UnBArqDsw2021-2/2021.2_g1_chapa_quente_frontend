@@ -1,0 +1,15 @@
+.container-pedidos-list {
+    display: flex;    
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards-pedidos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+}

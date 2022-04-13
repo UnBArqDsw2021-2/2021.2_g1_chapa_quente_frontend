@@ -34,7 +34,7 @@ const AuthProvider = ({ children }) => {
       setUser(data);
       setToken(tokenData);
     }
-  }, []);
+  }, [sessionStorage.getItem('@token')]);
 
   const logOut = () => {
     setIsAuthenticate(false);
@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        ...user,
+        user,
         setUser,
         isAuthenticate,
         setIsAuthenticate,
