@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Form } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
+import { PedidoItem } from '../PedidoItem';
 import api from '../../services';
 import './style.css';
-import { PedidoItem } from '../PedidoItem';
 
 export const Carrinho = () => {
     const {setOrder, order, setPreOrder, preOrder, token} = useAuth();
@@ -24,6 +25,9 @@ export const Carrinho = () => {
         });
         setPreOrder([]);
     }
+
+    useEffect(() => {
+      }, [order]);
 
     
     const confirmOrder = async () => {
@@ -63,6 +67,22 @@ export const Carrinho = () => {
                         </div>
                         {showItems()}
                     </div>
+                    <Form.Select 
+                        className="cadastro-produto-dropdown"
+                        aria-label="Retirar no local"
+                        defaultValue="false"
+                        onChange={(Option) => 
+                            {
+                            if(Option.target.value === "true") {
+                                setOrder({ ...order, retiradaLocal: true});
+                            }
+                            else setOrder({ ...order, retiradaLocal: false})
+                            }
+                        }
+                    >
+                        <option value="true">Retirada no Local</option>
+                        <option value="false">Entrega</option>
+                    </Form.Select>
                     <div
                         className="carrinho-confirm-button"
                         onClick={() => confirmOrder()}
