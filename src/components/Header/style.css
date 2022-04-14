@@ -22,7 +22,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 321px;
+  min-width: 321px;
   margin-left: 15vh;
   gap: 44px;
 }

@@ -48,7 +48,7 @@ export const RoutesChapa = () => {
       <Routes>
         <Route exact path="/" element={<h1>Home</h1>} />
         <Route exact path="/cardapio" element={<ListaCardapio />} />
-        <Route exact path="/chapaquenters" element={<h1>ChapaQuenters</h1>} />
+        {/* <Route exact path="/chapaquenters" element={<h1>ChapaQuenters</h1>} /> */}
         <Route exact path="/login" element={<Login />} />
 
         <Route exact path="/cadastro" element={<CadastroUsuario />} />
@@ -63,15 +63,18 @@ export const RoutesChapa = () => {
             </ProtectedLayout>
           }
         />
-        <Route
-          exact
-          path="/editar-produtos"
-          element={
-            <ProtectedLayout>
-              <NavTab />
-            </ProtectedLayout>
-          }
-        />
+
+        {user.funcao === 'Funcionario' && (
+          <Route
+            exact
+            path="/editar-produtos"
+            element={
+              <ProtectedLayout>
+                <NavTab />
+              </ProtectedLayout>
+            }
+          />
+        )}
         <Route
           exact
           path="/carrinho"

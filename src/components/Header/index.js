@@ -7,7 +7,7 @@ import { useAuth } from '../../context/AuthContext';
 
 export const Header = () => {
   // eslint-disable-next-line no-unused-vars
-  const { isAuthenticate, logOut } = useAuth();
+  const { isAuthenticate, logOut, user } = useAuth();
   const navigateHeader = useNavigate();
 
   const handleStatusUser = () => {
@@ -33,15 +33,15 @@ export const Header = () => {
             <li>
               <Link to="/cardapio">Cardápio</Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/chapaquenters">ChapaQuenters</Link>
-            </li>
+            </li> */}
             {isAuthenticate && (
               <li>
                 <Link to="/perfil">Perfil</Link>
               </li>
             )}
-            {isAuthenticate && (
+            {user.funcao === 'Funcionario' && (
               <li>
                 <Link to="/editar-produtos">Editar Produtos</Link>
               </li>
