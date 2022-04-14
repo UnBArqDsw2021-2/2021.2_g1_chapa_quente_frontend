@@ -11,19 +11,13 @@ export const ListaCardapio = () => {
   const [items, setItems] = useState([]);
 
   const { token } = useAuth();
-  const tipos = ['sanduiche', 'bebida', 'acompanhamento', 'sobremesa']
+  const tipos = ['sanduiche', 'bebida', 'acompanhamento', 'sobremesa'];
 
   useEffect(() => {
-    if (token) {
-      axios.all(
-        tipos.map(item =>
-          api.get(`${item}`).then((r) => (r.data)),
-        ),
-      ).then((item) => {
-        setItems([].concat(...item));
-        setLoad(false)
-      });
-    }
+    axios.all(tipos.map(item => api.get(item).then(r => r.data))).then(item => {
+      setItems([].concat(...item));
+      setLoad(false);
+    });
   }, [token]);
 
   return (
@@ -33,10 +27,8 @@ export const ListaCardapio = () => {
       ) : (
         <div className="container-list">
           <div className="cards">
-            {items.map((item) => (
-              <RefeicaoCard
-                itemInfo={item}
-              />
+            {items.map(item => (
+              <RefeicaoCard itemInfo={item} />
             ))}
           </div>
         </div>
