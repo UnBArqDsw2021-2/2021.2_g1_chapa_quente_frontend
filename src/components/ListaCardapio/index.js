@@ -27,8 +27,11 @@ export const ListaCardapio = () => {
       ) : (
         <div className="container-list">
           <div className="cards">
-            {items.map(item => (
-              <RefeicaoCard itemInfo={item} />
+            {items.map(item => ( 
+              item.isAvailable ?
+                <RefeicaoCard itemInfo={item} /> 
+              :
+                null
             ))}
           </div>
         </div>
