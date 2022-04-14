@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from '../components/Header';
-// import { Footer } from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { ProtectedLayout } from '../components/ProtectedLayout';
 import { ListaCardapio } from '../components/ListaCardapio';
 import { PerfilUsuario } from '../components/PerfilUsuario';
@@ -35,7 +35,7 @@ export const RoutesChapa = () => {
     <Router>
       <Header />
       <Routes>
-        <Route exact path="/" element={ <NavTab /> } />
+        <Route exact path="/" element={ <Footer /> } />
         <Route exact path="/cardapio" element={<h1>Cardápio</h1>} />
         <Route exact path="/" element={<h1>Home</h1>} />
         <Route exact path="/cardapio" element={<ListaCardapio />} />
@@ -54,9 +54,18 @@ export const RoutesChapa = () => {
             </ProtectedLayout>
           }
         />
+        <Route
+          exact
+          path="/editar-produtos"
+          element={
+            <ProtectedLayout>
+              <NavTab />
+            </ProtectedLayout>
+          }
+        />
         <Route path="*" element={<h1>Pagina Não Encontrada</h1>} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 };

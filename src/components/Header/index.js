@@ -41,6 +41,11 @@ export const Header = () => {
                 <Link to="/perfil">Perfil</Link>
               </li>
             )}
+            {isAuthenticate && (
+              <li>
+                <Link to="/editar-produtos">Editar Produtos</Link>
+              </li>
+            )}
           </ul>
         </div>
 
