@@ -7,7 +7,7 @@ import { ListaCardapio } from '../components/ListaCardapio';
 import { PerfilUsuario } from '../components/PerfilUsuario';
 import { Login } from '../components/Login';
 import { CadastroUsuario } from '../components/CadastroUsuario';
-import { NavTab } from '../components/NavTab';
+// import { NavTab } from '../components/NavTab';
 import { CadastroProduto } from '../components/CadastroProduto';
 import { Carrinho } from '../components/Carrinho';
 import { useAuth } from '../context/AuthContext';
@@ -35,8 +35,8 @@ export const RoutesChapa = () => {
     <Router>
       <Header />
       <Routes>
-        <Route exact path="/" element={ <NavTab /> } />
-        <Route exact path="/cardapio" element={<h1>Cardápio</h1>} />
+        {/* <Route exact path="/" element={ <NavTab /> } /> */}
+        {/* <Route exact path="/cardapio" element={<h1>Cardápio</h1>} /> */}
         <Route exact path="/" element={<h1>Home</h1>} />
         <Route exact path="/cardapio" element={<ListaCardapio />} />
         <Route exact path="/chapaquenters" element={<h1>ChapaQuenters</h1>} />

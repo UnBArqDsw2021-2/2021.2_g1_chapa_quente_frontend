@@ -17,11 +17,7 @@ export const ListaCardapio = () => {
     if (token) {
       axios.all(
         tipos.map(item =>
-          api.get(`${item}`, {
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          }).then((r) => (r.data)),
+          api.get(`${item}`).then((r) => (r.data)),
         ),
       ).then((item) => {
         setItems([].concat(...item));
