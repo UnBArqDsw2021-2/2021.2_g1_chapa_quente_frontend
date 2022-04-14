@@ -13,6 +13,7 @@ import { Carrinho } from '../components/Carrinho';
 import { useAuth } from '../context/AuthContext';
 import { ListaPedidosCliente } from '../components/ListaPedidos/cliente';
 import { ListaPedidosFuncionario } from '../components/ListaPedidos/funcionario';
+import { HomePage } from '../components/HomePage';
 
 export const RoutesChapa = () => {
   const { user } = useAuth();
@@ -46,7 +47,7 @@ export const RoutesChapa = () => {
     <Router>
       <Header />
       <Routes>
-        <Route exact path="/" element={<h1>Home</h1>} />
+        <Route exact path="/" element={<HomePage />} />
         <Route exact path="/cardapio" element={<ListaCardapio />} />
         {/* <Route exact path="/chapaquenters" element={<h1>ChapaQuenters</h1>} /> */}
         <Route exact path="/login" element={<Login />} />

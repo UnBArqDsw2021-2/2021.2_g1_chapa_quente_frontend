@@ -1,0 +1,33 @@
+.Home-div {
+  margin: auto;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.Home-ul {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-around; */
+}
+
+.home-li-right {
+  margin: auto;
+}
+
+.home-li-left {
+  font-size: 64px;
+  font-weight: bold;
+  margin: auto;
+}
+
+.span-home-text {
+  color: #f98942;
+}
+
+.home-divider {
+  border-top: 1px solid #f98942;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 50px;
+}
