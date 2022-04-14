@@ -4,10 +4,18 @@ import api from '../../services';
 import './style.css';
 
 export const CadastroUsuario = () => {
+  const initialValueEndereco = {
+    rua: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    cidade: ''
+  }
+  
   const initialValue = {
     nome: '',
     senha: '',
-    endereco: '',
+    endereco: initialValueEndereco,
     telefone: '',
     email: '',
   };
@@ -15,6 +23,7 @@ export const CadastroUsuario = () => {
   const navigate = useNavigate();
 
   const [values, setValues] = useState(initialValue);
+  const [valuesEndereco, setValuesEndereco] = useState(initialValueEndereco);
   const [msgSuccess, setMsgSuccess] = useState(false);
   const [msgError, setMsgError] = useState(false);
 
@@ -22,6 +31,13 @@ export const CadastroUsuario = () => {
     const { name, value } = ev.target;
 
     setValues({ ...values, [name]: value });
+  }
+
+  function onChangeEndereco(ev) {
+    const { name, value } = ev.target;
+
+    setValuesEndereco({ ...valuesEndereco, [name]: value })
+    setValues({ ...values, endereco: valuesEndereco})
   }
 
   useEffect(() => {
@@ -97,12 +113,52 @@ export const CadastroUsuario = () => {
 
           <input
             className="cadastro-usuario-input"
-            id="endereco"
-            name="endereco"
+            id="cidade"
+            name="cidade"
             type="text"
             required
-            placeholder="Endereço"
-            onChange={onChange}
+            placeholder="Cidade"
+            onChange={onChangeEndereco}
+          />
+
+          <input
+            className="cadastro-usuario-input"
+            id="bairro"
+            name="bairro"
+            type="text"
+            required
+            placeholder="Bairro"
+            onChange={onChangeEndereco}
+          />
+
+          <input
+            className="cadastro-usuario-input"
+            id="rua"
+            name="rua"
+            type="text"
+            required
+            placeholder="Rua"
+            onChange={onChangeEndereco}
+          />
+
+          <input
+            className="cadastro-usuario-input"
+            id="numero"
+            name="numero"
+            type="text"
+            required
+            placeholder="Número"
+            onChange={onChangeEndereco}
+          />
+
+          <input
+            className="cadastro-usuario-input"
+            id="complemento"
+            name="complemento"
+            type="text"
+            required
+            placeholder="Complemento"
+            onChange={onChangeEndereco}
           />
 
           <input
