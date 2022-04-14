@@ -1,0 +1,32 @@
+#container-entrega {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 5% 0;
+}
+.table-entrega {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0px 20px;
+  background-color: #eddcd8;
+  border-radius: 5px;
+}
+
+.btnCheck {
+  background-color: #f98942;
+  font-weight: bold;
+  font-weight: 700;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  padding: 5px 21px;
+  border-radius: 10px;
+  border: none;
+}
+
+.btnCheck:disabled {
+    background-color: #f9884250;
+    
+  }

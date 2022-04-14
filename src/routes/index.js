@@ -13,6 +13,7 @@ import { Carrinho } from '../components/Carrinho';
 import { useAuth } from '../context/AuthContext';
 import { ListaPedidosCliente } from '../components/ListaPedidos/cliente';
 import { ListaPedidosFuncionario } from '../components/ListaPedidos/funcionario';
+import { ListDelivery } from '../components/ListDelivery';
 
 export const RoutesChapa = () => {
   const { user } = useAuth();
@@ -71,6 +72,17 @@ export const RoutesChapa = () => {
             element={
               <ProtectedLayout>
                 <NavTab />
+              </ProtectedLayout>
+            }
+          />
+        )}
+        {user.funcao === 'Entregador' && (
+          <Route
+            exact
+            path="/entregas"
+            element={
+              <ProtectedLayout>
+                <ListDelivery />
               </ProtectedLayout>
             }
           />

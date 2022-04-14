@@ -45,6 +45,11 @@ export const Header = () => {
               <li>
                 <Link to="/editar-produtos">Editar Produtos</Link>
               </li>
+            )}            
+            {user.funcao === 'Entregador' && (
+              <li>
+                <Link to="/entregas">Entregas</Link>
+              </li>
             )}
           </ul>
         </div>
