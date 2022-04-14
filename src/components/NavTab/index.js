@@ -12,6 +12,7 @@ import { BebidaTab } from '../TabsContent/BebidaTab';
 import { UsuariosTab } from '../TabsContent/UsuariosTab';
 
 export const NavTab = () => {
+  const token = JSON.parse(sessionStorage.getItem('@token'));
   const [sanduiche, setSanduiche] = useState();
   const [adicional, setAdicional] = useState();
   const [acompanhamento, setAcompanhamento] = useState();
@@ -23,35 +24,55 @@ export const NavTab = () => {
 
   const getData = async () => {
     try {
-      const response = await api.get('/sanduiche');
+      const response = await api.get('/sanduiche', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
       setSanduiche(response.data);
     } catch (error) {
       console.log(error);
     }
 
     try {
-      const response = await api.get('/sobremesa');
+      const response = await api.get('/sobremesa', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
       setSobremesa(response.data);
     } catch (error) {
       console.log(error);
     }
 
     try {
-      const response = await api.get('/bebida');
+      const response = await api.get('/bebida', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
       setBebida(response.data);
     } catch (error) {
       console.log(error);
     }
 
     try {
-      const response = await api.get('/acompanhamento');
+      const response = await api.get('/acompanhamento', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
       setAcompanhamento(response.data);
     } catch (error) {
       console.log(error);
     }
 
     try {
-      const response = await api.get('/adicional');
+      const response = await api.get('/adicional', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
       setAdicional(response.data);
     } catch (error) {
       console.log(error);
