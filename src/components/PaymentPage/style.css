@@ -53,6 +53,21 @@
     margin-bottom: 30px;
 }
 
+.input-pagamento{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.type-card{
+    margin-left: 15%;
+}
+
+.type-cash{
+    margin-left: 15%;
+}
+
 .cadastro-cartao-input {
     background-color: #eddcd8;
     width: 305px;
@@ -129,4 +144,3 @@
   .btn-pagamento:active {
     background-color: white;
   }
-
