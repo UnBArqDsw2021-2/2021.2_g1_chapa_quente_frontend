@@ -15,7 +15,7 @@ import { ListaPedidosCliente } from '../components/ListaPedidos/cliente';
 import { ListaPedidosFuncionario } from '../components/ListaPedidos/funcionario';
 import { HomePage } from '../components/HomePage';
 import { ListDelivery } from '../components/ListDelivery';
-
+import { PaymentPage } from '../components/PaymentPage';
 
 export const RoutesChapa = () => {
   const { user } = useAuth();
@@ -56,6 +56,7 @@ export const RoutesChapa = () => {
 
         <Route exact path="/cadastro" element={<CadastroUsuario />} />
         <Route exact path="/cadastro-produto" element={<CadastroProduto />} />
+        <Route exact path="/pagamento/:id" element={<PaymentPage />} />
         {listaPedidosRoutes()}
         <Route
           exact
