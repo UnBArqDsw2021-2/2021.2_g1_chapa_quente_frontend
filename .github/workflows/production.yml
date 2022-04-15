@@ -23,5 +23,5 @@ jobs:
         with:
           args: deploy --dir=build --prod
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP}}
-          heroku_email: ${{secrets.HEROKU_EMAIL}}
+          heroku_app_name: 'chapa-quente-frontend'
+          heroku_email: 'pphenriquelm@gmail.com'
