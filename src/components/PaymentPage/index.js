@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BsCashCoin } from 'react-icons/bs';
 import { FaRegCreditCard } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../services';
@@ -11,6 +12,7 @@ export const PaymentPage = () => {
     const [pedido, setPedido] = useState()
     const { id } = useParams();
     const { token, user } = useAuth();
+    const navigate = useNavigate();
 
     const initialValue = {
         numero: '',
@@ -28,7 +30,9 @@ export const PaymentPage = () => {
     }
 
     const realizarPagamento = () => {
-        alert('Pagamento feito');
+        // console.log(user)
+        // alert('Pagamento feito');
+        navigate("/lista-pedidos");
     }
 
     const cadastrarCartao = () => {
