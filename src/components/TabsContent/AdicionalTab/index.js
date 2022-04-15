@@ -80,7 +80,7 @@ export const AdicionalTab = ({ adicionalResponse }) => {
           }
         });
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 

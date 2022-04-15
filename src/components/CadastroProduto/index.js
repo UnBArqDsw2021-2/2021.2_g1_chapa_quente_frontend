@@ -8,7 +8,6 @@ import { useAuth } from '../../context/AuthContext';
 export const CadastroProduto = () => {
   const [productType, setProductType] = useState("acompanhamento");
   const [comGelo, setComGelo] = useState(false);
-  console.log(comGelo);
   const initialValue = {
     descricao: '',
     preco: '',
@@ -40,7 +39,7 @@ export const CadastroProduto = () => {
       setValues(initialValue);
       setMsgSuccess(true);
     } else {
-        console.log(result.data.erro);
+        console.err(result.data.erro);
     }
   };
 

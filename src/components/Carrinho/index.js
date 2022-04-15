@@ -38,7 +38,7 @@ export const Carrinho = () => {
             clearOrder();
             navigate(`/pagamento/${id}`);
         } else {
-            console.log(result.data.erro);
+            console.err(result.data.erro);
         }
     };
 

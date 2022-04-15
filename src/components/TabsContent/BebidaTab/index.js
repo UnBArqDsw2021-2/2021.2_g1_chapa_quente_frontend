@@ -86,7 +86,7 @@ export const BebidaTab = ({ bebidaResponse }) => {
           }
         });
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 

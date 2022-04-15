@@ -15,7 +15,7 @@ export const PedidoResumoCliente = ({ item }) => {
       })
       .then(r => r.data);
     setOrderStatus(order.estado);
-    console.log(order);
+    
   };
 
   useEffect(() => {

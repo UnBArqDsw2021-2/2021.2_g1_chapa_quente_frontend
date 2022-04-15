@@ -57,7 +57,7 @@ export const PerfilUsuario = () => {
         logOut();
       }
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 

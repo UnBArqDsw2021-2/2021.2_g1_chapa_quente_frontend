@@ -48,8 +48,9 @@ export const CadastroUsuario = () => {
 
   const onSubmit = async ev => {
     ev.preventDefault();
+    let result;
     try {
-      const result = await api.post('/cliente', values);
+      result = await api.post('/cliente', values);
       if (result.status === 201) {
         setValues(initialValue);
         setMsgSuccess(true);
@@ -59,7 +60,7 @@ export const CadastroUsuario = () => {
         setMsgError(true);
       }
     } catch (error) {
-      console.log(result);
+      console.err(result);
     }
   };
 
