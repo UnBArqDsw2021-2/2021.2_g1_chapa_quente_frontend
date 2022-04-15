@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import { Form } from 'react-bootstrap';
 import { BsCashCoin } from 'react-icons/bs';
 import { FaRegCreditCard } from 'react-icons/fa';
 import { useParams } from 'react-router';
@@ -12,7 +10,7 @@ export const PaymentPage = () => {
     const [_value, setValue] = useState()
     const [pedido, setPedido] = useState()
     const { id } = useParams();
-    const { token } = useAuth();
+    const { token, user } = useAuth();
 
     const initialValue = {
         numero: '',
@@ -65,7 +63,7 @@ export const PaymentPage = () => {
                                 value="Cartao"
                                 onChange={e => setValue(e.target.value)}
                             />
-                            Cartão
+                            <div className="type-card">Cartão</div>
                         </label>
                         { _value === "Cartao" && <form className="form-cadastro-cartao">
                             <input
@@ -85,7 +83,7 @@ export const PaymentPage = () => {
                                 name="titular"
                                 type="text"
                                 required
-                                defaultValue="titular"
+                                defaultValue={user.nome}
                                 disabled
                                 placeholder="Titular do cartao"
                                 onChange={onChange}
@@ -107,7 +105,7 @@ export const PaymentPage = () => {
                                 name="validade"
                                 type="date"
                                 required
-                                defaultValue="1823274823721"
+                                defaultValue="2022-09-02"
                                 disabled
                                 placeholder="Data de validade do cartao"
                                 onChange={onChange}
@@ -141,7 +139,7 @@ export const PaymentPage = () => {
                                     value="Dinheiro"
                                     onChange={e => setValue(e.target.value)}
                                 />
-                                Dinheiro
+                                <div className="type-cash">Dinheiro</div>
                             </label>
                         </div>
                 </div>
