@@ -1,0 +1,46 @@
+.acompanhamento-tab-table{
+  width: 100%;
+}
+
+.input-produto-form{
+  background: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  width: 100%;
+  border: none;
+  text-align: center;
+}
+
+.button-produto-edit{
+  text-decoration: none;
+  padding: 10px;
+  background: none;
+  border: none;
+  margin: 0 5px;
+}
+
+.button-produto-edit:hover{
+  background-color: rgba(249, 137, 66, 1);
+  color: white;
+  border-radius: 50%;
+  
+}
+
+.table-produto{
+  width: 100%;
+}
+
+.tr-produto-edit{
+  /* background-color: yellow; */
+}
+
+.th-produto-edit{
+  padding: 10px;
+  border-bottom: solid rgba(249, 137, 66, 1);
+}
+
+.td-produto-edit{
+  border-bottom: solid rgba(249, 137, 66, 1);
+  text-align: center;
+  padding: 10px;
+}

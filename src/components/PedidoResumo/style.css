@@ -1,0 +1,70 @@
+.pedido-item {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pedido-inside-container {
+  border: 2px solid #f3dfd4;
+  width: 100%;
+  height: min-content;
+  border-radius: 5px;
+  /* display: grid; */
+  grid-template-columns: 3fr 1fr 1fr;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.item-field {
+  margin: 5px;
+  text-align: center;
+}
+
+.confirmar-estado-button {
+  background-color: #d35032;
+  font-size: 20px;
+  color: white;
+  border-radius: 5px;
+  padding: 7px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.estado-pedido-dropdown {
+  color: black;
+  background-color: #efd9d4;
+  border: none;
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+}
+
+.estado-pedido-cliente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: #efd9d4;
+    border-radius: 5px;
+    height: 40px;
+    width: 160px;
+}
+
+.arrange-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr ;
+  width: 100%;
+  justify-content: center;
+}
+
+.arrange-container-title {
+  font-weight: bold;
+  font-size: medium;
+}

@@ -1,0 +1,84 @@
+header {
+  margin: auto;
+  width: 80%;
+  height: auto;
+  max-height: 229px;
+  padding-top: 87px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-left-div {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-left-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 321px;
+  margin-left: 15vh;
+  gap: 44px;
+}
+
+.header-left-list a {
+  color: #f98942;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.header-right-div {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-right-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  right: 0;
+  width: 165px;
+  height: 45px;
+}
+
+.header-right-list li:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnPrimary {
+  background-color: #f98942;
+  font-weight: bold;
+  font-weight: 700;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+
+  padding: 5px 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.btnPrimary:hover {
+  background-color: #e97730;
+}
+
+.header-divider {
+  border-top: 1px solid #f98942;
+  width: 80%;
+  margin: auto;
+}
