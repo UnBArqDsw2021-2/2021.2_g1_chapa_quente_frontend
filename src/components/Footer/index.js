@@ -11,7 +11,7 @@ export const Footer = () => {
       <div className="footer-div">
         <ul className="footer-left-list">
           <li>
-            <a href="#s">
+            <a href="/">
               <span className="footer-icon-span">
                 <MdLocationPin />
               </span>
@@ -19,7 +19,7 @@ export const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#s">
+            <a href="/">
               <span className="footer-icon-span">
                 <BsFillTelephoneFill />
               </span>
@@ -47,7 +47,7 @@ export const Footer = () => {
         </ul>
         <ul className="footer-right-list">
           <li>
-            <a href="#s">
+            <a href="/">
               <span className="footer-icon-span">
                 <BsTwitter />
               </span>
@@ -55,7 +55,7 @@ export const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#s">
+            <a href="/">
               <span className="footer-icon-span">
                 <BsFacebook />
               </span>
@@ -63,7 +63,7 @@ export const Footer = () => {
             </a>
           </li>
           <li>
-            <a href="#s">
+            <a href="/">
               <span className="footer-icon-span">
                 <AiFillInstagram />
               </span>

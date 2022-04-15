@@ -9,7 +9,6 @@ import { SanduicheTab } from "../TabsContent/SanduicheTab";
 import { SobremesaTab } from "../TabsContent/SobremesaTab";
 import { AcompanhamentoTab } from '../TabsContent/AcompanhamentoTab';
 import { BebidaTab } from '../TabsContent/BebidaTab';
-import { UsuariosTab } from '../TabsContent/UsuariosTab';
 
 export const NavTab = () => {
   const token = JSON.parse(sessionStorage.getItem('@token'));
@@ -18,7 +17,7 @@ export const NavTab = () => {
   const [acompanhamento, setAcompanhamento] = useState();
   const [bebida, setBebida] = useState();
   const [sobremesa, setSobremesa] = useState();
-  const [activeTab, setActiveTab] = useState('acompanhamento');
+  const [activeTab, setActiveTab] = useState('sanduiche');
 
   const [load, setload] = useState(true);
 
@@ -138,14 +137,6 @@ export const NavTab = () => {
                 setActiveTab={setActiveTab}
               />
             </li>
-            <li>
-              <NavTabItem
-                title="Usuários"
-                id="usuarios"
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-              />
-            </li>
           </ul>
           <div className="outlet">
             <NavTabContent id="sanduiche" activeTab={activeTab}>
@@ -162,9 +153,6 @@ export const NavTab = () => {
             </NavTabContent>
             <NavTabContent id="sobremesa" activeTab={activeTab}>
               <SobremesaTab sobremesaResponse={sobremesa} />
-            </NavTabContent>
-            <NavTabContent id="usuarios" activeTab={activeTab}>
-              <UsuariosTab />
             </NavTabContent>
           </div>
         </div>
