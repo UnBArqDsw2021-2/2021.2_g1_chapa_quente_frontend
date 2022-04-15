@@ -2,6 +2,10 @@
   "name": "2021.2_g1_chapa_quente_frontend",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "v14.17.0",
+    "npm": "7.24.1"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
