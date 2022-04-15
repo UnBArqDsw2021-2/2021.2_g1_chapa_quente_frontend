@@ -46,7 +46,7 @@ export const Login = () => {
       const response = await api.post('/signin', values).then(res => {
         return res;
       });
-
+      let sessionStorage;
       if (response.status === 200) {
         sessionStorage.setItem('@user', JSON.stringify({
           ...response.data.pessoa,

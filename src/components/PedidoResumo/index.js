@@ -27,7 +27,6 @@ export const PedidoResumo = ({ item }) => {
     );
   }, []);
 
-  console.log(items);
 
   return (
     <div className="pedido-item">

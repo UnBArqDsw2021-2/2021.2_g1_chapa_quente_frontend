@@ -18,10 +18,9 @@ export const ListaPedidosFuncionario = () => {
       },
     });
     if (result.status === 200) {
-        console.log("success")
-      return result.data;
+        return result.data;
     }
-    console.log('failed')
+    console.err(result.data.error)
     return result.data.error;
   };
 
@@ -34,7 +33,7 @@ export const ListaPedidosFuncionario = () => {
           setLoad(false);
         });
       } catch (error) {
-        console.log(error);
+        console.err(error);
       }
     }
   }, [token]);

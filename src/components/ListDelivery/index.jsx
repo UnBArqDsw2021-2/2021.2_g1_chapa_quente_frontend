@@ -39,7 +39,7 @@ export const ListDelivery = () => {
           });
       }
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 
@@ -60,7 +60,7 @@ export const ListDelivery = () => {
         setLoad(false);
       }
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 
@@ -69,8 +69,7 @@ export const ListDelivery = () => {
   }, [load]);
 
   useEffect(() => {
-    console.log(realData);
-  }, [realData]);
+    }, [realData]);
 
   return (
     <>

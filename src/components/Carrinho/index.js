@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router';
 import { Form } from 'react-bootstrap';
 import { useAuth } from '../../context/AuthContext';
 import { PedidoItem } from '../PedidoItem';
@@ -9,6 +10,7 @@ import './style.css';
 export const Carrinho = () => {
     const {setOrder, order, setPreOrder, preOrder, token} = useAuth();
     const navigate = useNavigate();
+    const {id} = useParams();
 
     const clearOrder = () => {
         setOrder({
@@ -34,9 +36,9 @@ export const Carrinho = () => {
         const result = await api.post(`/order/create`, order, { headers: {"Authorization" : `Bearer ${token}`}});
         if (result.status === 201) {
             clearOrder();
-            navigate('/lista-pedidos');
+            navigate(`/pagamento/${id}`);
         } else {
-            console.log(result.data.erro);
+            console.err(result.data.erro);
         }
     };
 

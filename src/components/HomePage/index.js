@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
-import sanduicheHome from '../../assets/sanduiche-home.png';
+import sanduicheHome from '../../assets/sanduiche-home.png'; 
+import { ListaCardapio } from '../ListaCardapio';
 
 export const HomePage = () => {
   return (
@@ -20,6 +21,7 @@ export const HomePage = () => {
           </li>
         </ul>
       </div>
+      <ListaCardapio/>
       <hr className="home-divider" />
     </section>
   )

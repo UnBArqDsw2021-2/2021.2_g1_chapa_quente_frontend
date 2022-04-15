@@ -80,7 +80,7 @@ export const SanduicheTab = ({ sanduicheResponse }) => {
           }
         });
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 
