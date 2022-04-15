@@ -34,7 +34,7 @@ export const Carrinho = () => {
         const result = await api.post(`/order/create`, order, { headers: {"Authorization" : `Bearer ${token}`}});
         if (result.status === 201) {
             clearOrder();
-            navigate('/lista-pedidos');
+            navigate(`/pagamento/${id}`);
         } else {
             console.log(result.data.erro);
         }
