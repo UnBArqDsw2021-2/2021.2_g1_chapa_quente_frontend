@@ -36,7 +36,7 @@ export const Carrinho = () => {
             clearOrder();
             navigate('/lista-pedidos');
         } else {
-            console.log(result.data.erro);
+            console.err(result.data.erro);
         }
     };
 

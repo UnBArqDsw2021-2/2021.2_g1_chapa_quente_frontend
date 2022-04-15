@@ -23,7 +23,7 @@ export const ListaPedidosCliente = () => {
         return;
       }
     } catch (err) {
-      console.log(err);
+      console.err(err);
     }
   };
 

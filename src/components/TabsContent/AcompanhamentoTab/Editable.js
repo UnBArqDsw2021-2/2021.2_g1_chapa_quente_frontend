@@ -65,7 +65,6 @@ const Editable = ({
         <button className="button-produto-edit" type="submit"> <FaSave size={20} /></button>
         <button className="button-produto-edit" type="button" onClick={handleCancelClick}>
           <GiCancel size={20} />
-          {console.log(editFormData.isAvailable)}
         </button>
         <button className="button-produto-edit" type="button" onClick={() => handleDeleteClick(editFormData._id)}>
           <RiDeleteBin2Fill size={20} />

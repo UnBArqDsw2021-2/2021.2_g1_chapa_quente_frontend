@@ -80,7 +80,7 @@ export const AcompanhamentoTab = ({ acompanhamentoResponse }) => {
           }
         });
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 

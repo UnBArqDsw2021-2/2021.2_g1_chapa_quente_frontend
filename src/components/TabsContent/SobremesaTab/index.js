@@ -80,7 +80,7 @@ export const SobremesaTab = ({ sobremesaResponse }) => {
           }
         });
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 

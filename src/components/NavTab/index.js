@@ -30,7 +30,7 @@ export const NavTab = () => {
       });
       setSanduiche(response.data);
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
 
     try {
@@ -41,7 +41,7 @@ export const NavTab = () => {
       });
       setSobremesa(response.data);
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
 
     try {
@@ -52,7 +52,7 @@ export const NavTab = () => {
       });
       setBebida(response.data);
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
 
     try {
@@ -63,7 +63,7 @@ export const NavTab = () => {
       });
       setAcompanhamento(response.data);
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
 
     try {
@@ -74,7 +74,7 @@ export const NavTab = () => {
       });
       setAdicional(response.data);
     } catch (error) {
-      console.log(error);
+      console.err(error);
     }
   };
 
