@@ -53,7 +53,7 @@ export const SanduicheTab = ({ sanduicheResponse }) => {
 
   const handleDeleteClick = (produtoId) => {
     window.location.reload("false");
-    api.delete(`sanduiche/delete/:${produtoId}`, {
+    api.delete(`sanduiche/delete/${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -70,7 +70,7 @@ export const SanduicheTab = ({ sanduicheResponse }) => {
       isAvailable: editFormData.isAvailable
     };
     try {
-      const res = await api.put(`sanduiche/update/:${editedproduto._id}`,
+      const res = await api.put(`sanduiche/update/${editedproduto._id}`,
         editFormData,
         {
           headers: {

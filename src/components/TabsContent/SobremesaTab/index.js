@@ -53,7 +53,7 @@ export const SobremesaTab = ({ sobremesaResponse }) => {
 
   const handleDeleteClick = (produtoId) => {
     window.location.reload(false);
-    api.delete(`sobremesa/delete/:${produtoId}`, {
+    api.delete(`sobremesa/delete/${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -70,7 +70,7 @@ export const SobremesaTab = ({ sobremesaResponse }) => {
       isAvailable: editFormData.isAvailable
     };
     try {
-      const res = await api.put(`sobremesa/update/:${editedproduto._id}`,
+      const res = await api.put(`sobremesa/update/${editedproduto._id}`,
         editFormData,
         {
           headers: {
