@@ -57,7 +57,7 @@ export const BebidaTab = ({ bebidaResponse }) => {
 
   const handleDeleteClick = (produtoId) => {
     window.location.reload(false);
-    api.delete(`bebida/delete/:${produtoId}`, {
+    api.delete(`bebida/delete/${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -76,7 +76,7 @@ export const BebidaTab = ({ bebidaResponse }) => {
       comGelo: editFormData.comGelo
     };
     try {
-      const res = await api.put(`bebida/update/:${editedproduto._id}`,
+      const res = await api.put(`bebida/update/${editedproduto._id}`,
         editFormData,
         {
           headers: {

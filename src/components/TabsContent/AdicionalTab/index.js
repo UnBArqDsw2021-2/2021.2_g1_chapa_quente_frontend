@@ -53,7 +53,7 @@ export const AdicionalTab = ({ adicionalResponse }) => {
 
   const handleDeleteClick = (produtoId) => {
     window.location.reload(false);
-    api.delete(`adicional/delete/:${produtoId}`, {
+    api.delete(`adicional/delete/${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -70,7 +70,7 @@ export const AdicionalTab = ({ adicionalResponse }) => {
       isAvailable: editFormData.isAvailable
     };
     try {
-      const res = await api.put(`adicional/update/:${editedproduto._id}`,
+      const res = await api.put(`adicional/update/${editedproduto._id}`,
         editFormData,
         {
           headers: {

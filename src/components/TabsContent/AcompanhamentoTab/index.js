@@ -53,7 +53,7 @@ export const AcompanhamentoTab = ({ acompanhamentoResponse }) => {
 
   const handleDeleteClick = (produtoId) => {
     window.location.reload(false);
-    api.delete(`acompanhamento/delete/:${produtoId}`, {
+    api.delete(`acompanhamento/delete/${produtoId}`, {
       headers: {
         authorization: `Bearer ${token}`
       }
@@ -70,7 +70,7 @@ export const AcompanhamentoTab = ({ acompanhamentoResponse }) => {
       isAvailable: editFormData.isAvailable
     };
     try {
-      const res = await api.put(`acompanhamento/update/:${editedproduto._id}`,
+      const res = await api.put(`acompanhamento/update/${editedproduto._id}`,
         editFormData,
         {
           headers: {
