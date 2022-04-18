@@ -31,7 +31,7 @@ Para executar o projeto locamente sera necessario ter instalado o Docker e Docke
 Primeiramente é necessario clonar o projeto e entrar na pasta raiz.
 
 ```
-git clone git@github.com:UnBArqDsw2021-2/2021.2_g1_chapa_quente_frontend.git
+git clone https://github.com/UnBArqDsw2021-2/2021.2_g1_chapa_quente_frontend.git
 cd 2021.2_g1_chapa_quente_frontend
 ```
 
