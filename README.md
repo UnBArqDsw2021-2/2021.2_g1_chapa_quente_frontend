@@ -60,7 +60,7 @@ Após rodar os comandos o projeto estara disponivel ao acesso pelo navegador na 
 http://localhost:3000
 ```
 
-Ocorrendo tudo certo deve ser possivel visível a seguinte tela.
+Ocorrendo tudo certo deve ser possivel ver a seguinte tela.
 <p align='center'>
     <img src='https://i.imgur.com/580832T.png' width="90%" height="auto">
 </p>
